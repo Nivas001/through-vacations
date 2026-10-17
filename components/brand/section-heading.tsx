@@ -6,7 +6,7 @@ export function Accent({ text, className }: { text: string; className?: string }
     <>
       {text.split(/(\*[^*]+\*)/g).map((part, i) =>
         part.startsWith("*") ? (
-          <em key={i} className={cn("serif-i font-extrabold text-brand", className)}>{part.slice(1, -1)}</em>
+          <em key={i} className={cn("accent-word text-brand", className)}>{part.slice(1, -1)}</em>
         ) : (
           part
         ),
@@ -36,7 +36,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-4xl leading-[0.98] font-extrabold uppercase sm:text-6xl">
+      <h2 className="text-4xl leading-[1] font-extrabold sm:text-6xl">
         <Accent text={title} />
       </h2>
       {children && <p className="mt-5 text-base text-muted-foreground sm:text-lg">{children}</p>}

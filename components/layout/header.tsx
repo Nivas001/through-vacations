@@ -119,7 +119,7 @@ export function Header() {
                     <SheetClose key={n.href} render={<Link href={n.href} />} className="group flex items-center gap-4 border-b border-white/20 py-2.5">
                       <Image src={n.img} alt="" width={64} height={64} className="size-12 rounded-xl object-cover" />
                       <span className="flex-1">
-                        <span className="block font-display text-2xl leading-none font-extrabold uppercase group-hover:text-sun">{n.label}</span>
+                        <span className="block font-display text-2xl leading-none font-extrabold group-hover:text-sun">{n.label}</span>
                         <span className="serif-i text-sm text-white/70">{n.sub}</span>
                       </span>
                       <ArrowUpRight className="size-5 text-sun" />

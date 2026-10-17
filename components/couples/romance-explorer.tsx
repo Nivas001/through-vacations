@@ -31,7 +31,7 @@ export function RomanceExplorer({ items }: { items: RomanceItem[] }) {
       <div key={cur.slug} className="fade-up mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Carousel slides={slides} className="overflow-hidden rounded-[1.75rem] card-lift" aspect="aspect-[4/3] sm:aspect-[5/4]" />
-          <p className="mt-5 font-display text-3xl leading-[0.95] font-extrabold uppercase sm:text-4xl">{cur.line}</p>
+          <p className="mt-5 font-display text-3xl leading-[1] font-extrabold sm:text-4xl">{cur.line}</p>
           <p className="mt-3 text-sm text-muted-foreground"><b className="text-foreground">Good to know.</b> {cur.honest}</p>
         </div>
 
@@ -64,7 +64,7 @@ function Idea({ idea, n }: { idea: DateIdea; n: number }) {
     <li className="card-lift flex gap-4 rounded-[1.25rem] border bg-card p-4 transition hover:-translate-y-0.5 hover:border-primary/50">
       <span className="relative grid size-12 shrink-0 place-items-center rounded-2xl bg-secondary text-brand"><Icon className="size-5" /><span className="absolute -top-1.5 -left-1.5 grid size-5 place-items-center rounded-full bg-sun text-[0.65rem] font-bold text-sun-foreground">{n}</span></span>
       <span>
-        <span className="flex flex-wrap items-center gap-2"><span className="font-display text-lg leading-tight font-extrabold uppercase">{idea.title}</span><span className="rounded-full bg-muted px-2.5 py-0.5 text-[0.65rem] font-bold tracking-wider text-muted-foreground uppercase">{idea.when}</span></span>
+        <span className="flex flex-wrap items-center gap-2"><span className="font-display text-lg leading-tight font-extrabold">{idea.title}</span><span className="rounded-full bg-muted px-2.5 py-0.5 text-[0.65rem] font-bold tracking-wider text-muted-foreground uppercase">{idea.when}</span></span>
         <span className="mt-1.5 block text-sm leading-relaxed text-muted-foreground">{idea.text}</span>
       </span>
     </li>

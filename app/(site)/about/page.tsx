@@ -58,8 +58,8 @@ export default async function AboutPage() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase">About us</p>
-            <h1 className="text-5xl leading-[0.9] font-extrabold uppercase sm:text-7xl lg:text-[5.5rem]">
-              We plan trips like we&apos;d plan <span className="serif-i font-extrabold text-brand">our own.</span>
+            <h1 className="text-5xl leading-[0.95] font-extrabold sm:text-7xl lg:text-[5.5rem]">
+              We plan trips like we&apos;d plan <span className="accent-word text-brand">our own.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">Through Vacations designs holidays across India and abroad from a small base on the Coromandel coast. Slow where it should be, precise where it has to be, and always built around the people going.</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -88,8 +88,8 @@ export default async function AboutPage() {
               <li key={b.t} className="list-none">
                 <Reveal delay={i * 70} className="h-full">
                   <SpotlightCard className="card-lift h-full rounded-[1.5rem] border bg-card p-7">
-                    <span className="font-display text-6xl leading-none font-extrabold text-brand italic">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="mt-5 text-3xl leading-none font-extrabold uppercase">{b.t}</h3>
+                    <span className="font-display text-6xl leading-none font-extrabold text-brand">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-5 text-3xl leading-none font-extrabold">{b.t}</h3>
                     <p className="mt-3 text-muted-foreground">{b.d}</p>
                   </SpotlightCard>
                 </Reveal>
@@ -125,7 +125,7 @@ export default async function AboutPage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase"><MapPin className="size-3.5" /> Our home</p>
-            <h2 className="text-4xl leading-[0.92] font-extrabold uppercase sm:text-6xl">Why <span className="serif-i font-extrabold text-sun">Pondicherry?</span></h2>
+            <h2 className="text-4xl leading-[0.96] font-extrabold sm:text-6xl">Why <span className="accent-word text-sun">Pondicherry?</span></h2>
             <div className="mt-6 space-y-4 text-lg text-white/85">
               <p>It is a town that teaches you how to travel: walk instead of drive, linger at the table, ask the way and enjoy the detour. French-quarter streets, a long seafront promenade and the quiet of nearby Auroville.</p>
               <p>It is also a handy base. Chennai is about three to four hours away by road, and many of our travellers start from there. We plan trips for Pondicherry and Chennai travellers first, and travellers across India and abroad too.</p>
@@ -151,7 +151,7 @@ export default async function AboutPage() {
                     <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                     <span className="relative p-4">
                       <span className="grid size-9 place-items-center rounded-full bg-sun text-sun-foreground"><Icon className="size-4" /></span>
-                      <span className="mt-3 block font-display text-xl leading-none font-extrabold uppercase">{t}</span>
+                      <span className="mt-3 block font-display text-xl leading-none font-extrabold">{t}</span>
                       <span className="mt-1 block text-xs text-white/80">{d}</span>
                     </span>
                   </a>
@@ -166,7 +166,7 @@ export default async function AboutPage() {
           <div className="card-lift grid overflow-hidden rounded-[1.75rem] border bg-card lg:grid-cols-[0.8fr_1.2fr]">
             <div className="grain relative flex min-h-[260px] items-end bg-[#070b24] p-8 text-white">
               <Sun className="absolute top-6 right-6 size-10 text-sun" />
-              <p className="font-display text-4xl leading-[0.95] font-extrabold uppercase">{hasStory && about.founder ? about.founder : "The people behind your trip"}</p>
+              <p className="font-display text-4xl leading-[1] font-extrabold">{hasStory && about.founder ? about.founder : "The people behind your trip"}</p>
             </div>
             <div className="p-8 sm:p-12">
               {about.founderStory ? (

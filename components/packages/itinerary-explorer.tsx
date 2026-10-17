@@ -88,11 +88,11 @@ export function ItineraryExplorer({ days }: { days: ItineraryDay[] }) {
                 className={cn("rounded-3xl border-2 bg-card p-6 transition duration-500 sm:p-8", i === active && !dim && "border-primary shadow-2xl shadow-primary/15", dim && "scale-[0.98] opacity-35")}
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-outline font-display text-7xl leading-none font-extrabold italic text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-outline font-display text-7xl leading-none font-extrabold text-primary">{String(i + 1).padStart(2, "0")}</span>
                   <span className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Day {i + 1}</span>
                   {d.pace && <span className={cn("ml-auto rounded-full px-3 py-1 text-xs font-semibold", paceStyle[d.pace])}>{d.pace}</span>}
                 </div>
-                <h3 className="mt-3 text-3xl leading-[0.95] font-extrabold uppercase sm:text-4xl">{d.title}</h3>
+                <h3 className="mt-3 text-3xl leading-[1] font-extrabold sm:text-4xl">{d.title}</h3>
                 <p className="mt-3 max-w-2xl text-muted-foreground">{d.description}</p>
                 {d.overnight && (
                   <p className="mt-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold text-muted-foreground">

@@ -4,8 +4,7 @@ import { ArrowUpRight, Heart, BedDouble, Briefcase, GraduationCap, Plane, Route,
 import { getPackage, getPackages } from "@/lib/data/packages";
 import { IG, monthName, whatsappLink } from "@/lib/site";
 import { stories } from "@/lib/mock/stories";
-import { HeroSearch } from "@/components/home/hero-search";
-import { HeroGate, type GateSlide } from "@/components/home/hero-gate";
+import { HeroPostcards, type PostcardSlide } from "@/components/home/hero-postcards";
 import { EscapeFinder } from "@/components/home/escape-finder";
 import { PackageCard } from "@/components/packages/package-card";
 import { SectionHeading } from "@/components/brand/section-heading";
@@ -51,7 +50,7 @@ export default async function HomePage() {
   const india = all.filter((p) => p.region === "India").slice(0, 5);
   const intl = all.filter((p) => p.region === "International").slice(0, 5);
 
-  const slides: GateSlide[] = (
+  const slides: PostcardSlide[] = (
     await Promise.all(
       gate.map(async (g) => {
         const p = await getPackage(g.slug);
@@ -66,19 +65,14 @@ export default async function HomePage() {
           nights: p.nights,
           flight: p.facts.fromChennai,
           months: p.bestMonths.slice(0, 3).map((m) => monthName(m).slice(0, 3)).join(", "),
-        } satisfies GateSlide;
+        } satisfies PostcardSlide;
       }),
     )
-  ).filter((x): x is GateSlide => x !== null);
+  ).filter((x): x is PostcardSlide => x !== null);
 
   return (
     <>
-      <div className="relative">
-        <HeroGate slides={slides} />
-        <div className="relative z-10 mx-auto -mt-16 max-w-5xl px-3 sm:-mt-12 sm:px-8">
-          <HeroSearch destinations={destinations} />
-        </div>
-      </div>
+      <HeroPostcards slides={slides} destinations={destinations} />
 
       {/* Couples hook */}
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6">
@@ -86,7 +80,7 @@ export default async function HomePage() {
           <div className="grid overflow-hidden rounded-[1.75rem] bg-[#070b24] text-white lg:grid-cols-[1fr_1.1fr]">
             <div className="flex flex-col justify-center p-7 sm:p-12">
               <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-rose-500 px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-white uppercase"><Heart className="size-3.5 fill-current" /> Couples and honeymoons</p>
-              <h2 className="text-4xl leading-[0.92] font-extrabold uppercase sm:text-6xl">Two of you. <span className="serif-i font-extrabold text-sun">One trip.</span></h2>
+              <h2 className="text-4xl leading-[0.96] font-extrabold sm:text-6xl">Two of you. <span className="accent-word text-sun">One trip.</span></h2>
               <p className="mt-5 max-w-md text-white/75">Romantic date ideas for Maldives, Bali, Kashmir and more, a five-question honeymoon match and little touches planned around your occasion.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton href="/couples#quiz" variant="sun" size="lg" className="h-12 px-7 text-base">Find our match <ArrowUpRight /></LinkButton>
@@ -98,7 +92,7 @@ export default async function HomePage() {
                 <Link key={name} href="/couples" className={`group relative overflow-hidden rounded-[1.25rem] ${i === 1 ? "mt-8" : ""}`}>
                   <Image src={src} alt="" fill sizes="(min-width:1024px) 20vw, 33vw" quality={85} className="object-cover transition duration-700 group-hover:scale-110" />
                   <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <span className="absolute inset-x-3 bottom-3 font-display text-lg leading-none font-extrabold text-white uppercase sm:text-2xl">{name}</span>
+                  <span className="absolute inset-x-3 bottom-3 font-display text-lg leading-none font-extrabold text-white sm:text-2xl">{name}</span>
                 </Link>
               ))}
             </div>
@@ -132,7 +126,7 @@ export default async function HomePage() {
             <div className="relative grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase">New · Trip Shaper</p>
-                <h2 className="text-4xl leading-[0.95] font-extrabold uppercase sm:text-6xl">How much trip is <span className="serif-i font-extrabold text-sun">too much</span> trip?</h2>
+                <h2 className="text-4xl leading-[1] font-extrabold sm:text-6xl">How much trip is <span className="accent-word text-sun">too much</span> trip?</h2>
                 <p className="mt-5 max-w-lg text-white/80">Pick a place, a month and how many days you have. We show the effort the plan asks of you, whether the season is kind and what to sort before you go. No prices, just honest planning.</p>
                 <LinkButton href="/trip-shaper" variant="sun" size="lg" className="mt-8 h-12 px-7 text-base">Shape my trip <ArrowUpRight /></LinkButton>
               </div>
@@ -160,14 +154,14 @@ export default async function HomePage() {
             <div key={g.e} className="min-w-0">
               <div className="flex items-end justify-between gap-4">
                 <SectionHeading eyebrow={g.e} title={g.t} />
-                <Link href={`/packages?region=${g.e}`} className="text-sm font-bold text-brand underline-offset-4 hover:underline">See all</Link>
+                <Link href={`/packages?region=${g.e}`} className="shrink-0 pb-1 text-sm font-bold whitespace-nowrap text-brand underline-offset-4 hover:underline">See all</Link>
               </div>
               <div className="grain relative mt-6 divide-y divide-white/15 overflow-hidden rounded-[1.75rem] bg-primary text-white">
                 {g.l.map((p) => (
                   <Link key={p.id} href={`/packages/${p.slug}`} className="group relative flex items-center gap-4 p-3 transition hover:bg-white/10">
                     <Image src={p.image} alt="" width={120} height={120} sizes="96px" className="size-20 rounded-2xl object-cover" />
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-2xl leading-none font-extrabold uppercase">{p.destination}</p>
+                      <p className="truncate font-display text-2xl leading-none font-extrabold">{p.destination}</p>
                       <p className="mt-1 truncate text-sm text-white/75"><span className="serif-i">{p.tagline}</span> · {p.durationLabel}</p>
                     </div>
                     <ArrowUpRight className="size-6 text-sun transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -187,8 +181,8 @@ export default async function HomePage() {
           <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s) => (
               <li key={s.n} className="rounded-3xl border border-white/15 bg-white/5 p-6 transition duration-300 hover:-translate-y-2 hover:border-sun hover:bg-white/10">
-                <span className="text-outline font-display text-7xl leading-none font-extrabold text-sun italic">{s.n}</span>
-                <h3 className="mt-5 text-2xl font-extrabold uppercase">{s.title}</h3>
+                <span className="text-outline font-display text-7xl leading-none font-extrabold text-sun">{s.n}</span>
+                <h3 className="mt-5 text-2xl font-extrabold">{s.title}</h3>
                 <p className="mt-2 text-sm text-white/70">{s.body}</p>
               </li>
             ))}
@@ -236,7 +230,7 @@ export default async function HomePage() {
         <div className="relative overflow-hidden rounded-[1.75rem] bg-sun px-6 py-16 text-center text-sun-foreground sm:px-16 sm:py-24">
           <Wave className="opacity-[0.25] invert" />
           <div className="relative">
-            <h2 className="mx-auto max-w-3xl text-5xl leading-[0.9] font-extrabold uppercase sm:text-7xl">Tell us where you <span className="serif-i font-extrabold">want to go.</span></h2>
+            <h2 className="mx-auto max-w-3xl text-5xl leading-[0.95] font-extrabold sm:text-7xl">Tell us where you <span className="accent-word accent-light text-primary">want to go.</span></h2>
             <p className="mx-auto mt-6 max-w-lg text-sun-foreground/80">A three-step form, a personal quote and a planner to shape the details.</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <LinkButton href="/plan" size="lg" className="h-12 bg-ink px-7 text-base text-white hover:bg-white hover:text-ink dark:bg-ink dark:text-background">Plan my trip <ArrowUpRight /></LinkButton>

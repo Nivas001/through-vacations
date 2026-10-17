@@ -27,7 +27,7 @@ export function JournalList({ stories }: { stories: Story[] }) {
           </div>
           <div className="flex flex-col justify-center p-7 sm:p-12">
             <p className="text-xs font-bold tracking-[0.2em] text-sun uppercase">Latest · {lead.kicker} · {lead.read}</p>
-            <h2 className="serif mt-4 text-3xl leading-[1.05] uppercase sm:text-5xl">{lead.title}</h2>
+            <h2 className="serif mt-4 text-3xl leading-[1.05] sm:text-5xl">{lead.title}</h2>
             <p className="mt-5 line-clamp-3 text-white/75">{lead.body[0]}</p>
             <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-bold text-sun">Read the story <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>
           </div>

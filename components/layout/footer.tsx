@@ -22,8 +22,8 @@ export async function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-white/20 pb-10">
           <div aria-label="Through Vacations">
-            <p className="text-outline font-display text-[17vw] leading-[0.8] font-extrabold tracking-tighter uppercase sm:text-[10.5vw] lg:text-[9rem]">through</p>
-            <p className="serif-i -mt-1 flex items-center gap-4 text-[15vw] leading-[0.95] font-extrabold text-white sm:text-[8.5vw] lg:text-[7.5rem]">
+            <p className="font-logo pr-[0.08em] text-[19vw] leading-[0.9] text-white sm:text-[12vw] lg:text-[10.5rem]">through</p>
+            <p className="mt-2 flex items-center gap-4 font-display text-[10vw] leading-none font-extrabold tracking-[0.08em] text-sun uppercase sm:text-[6vw] lg:text-[5.25rem]">
               vacations <Arrow className="mt-3 hidden h-[0.45em] w-[1.1em] text-sun sm:block" />
             </p>
           </div>

@@ -110,7 +110,7 @@ export function PackageBrowser({ packages, initial }: { packages: TravelPackage[
               <SlidersHorizontal /> Filters{chips.length > 0 && ` (${chips.length})`}
             </SheetTrigger>
             <SheetContent side="bottom" className="max-h-[85dvh] overflow-y-auto rounded-t-[1.75rem] p-6">
-              <SheetTitle className="font-display text-3xl font-extrabold uppercase">Filters</SheetTitle>
+              <SheetTitle className="font-display text-3xl font-extrabold">Filters</SheetTitle>
               <div className="space-y-6">
                 <div><p className="mb-3 text-xs font-bold tracking-[0.18em] uppercase">Where</p><div className="flex flex-wrap gap-2">{regions.map((r) => <Chip key={r.label} on={s.region === r.v} onClick={() => set("region", r.v)}>{r.label}</Chip>)}</div></div>
                 <div><p className="mb-3 text-xs font-bold tracking-[0.18em] uppercase">Style</p>{stylePicker}</div>
@@ -147,7 +147,7 @@ export function PackageBrowser({ packages, initial }: { packages: TravelPackage[
         </div>
       ) : (
         <div className="mt-8 rounded-[1.5rem] border border-dashed bg-card p-12 text-center">
-          <h2 className="text-3xl font-extrabold uppercase">Nothing matches just yet</h2>
+          <h2 className="text-3xl font-extrabold">Nothing matches just yet</h2>
           <p className="mx-auto mt-2 max-w-md text-muted-foreground">We plan far more trips than we list. Tell us what you have in mind and we will build it.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button variant="outline" onClick={reset}>Clear filters</Button>

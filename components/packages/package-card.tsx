@@ -40,7 +40,7 @@ export function PackageCard({ pkg, className, priority }: { pkg: TravelPackage; 
         <p className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-brand uppercase">
           <MapPin className="size-3.5" /> {pkg.destination}
         </p>
-        <h3 className="mt-1.5 text-[1.9rem] leading-[0.95] font-extrabold uppercase">{pkg.title}</h3>
+        <h3 className="mt-1.5 text-[1.9rem] leading-[1] font-extrabold">{pkg.title}</h3>
         <p className="serif-i mt-1 text-xl text-muted-foreground">{pkg.tagline}</p>
         <div className="mt-auto flex items-end justify-between gap-3 pt-5">
           <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -50,7 +50,7 @@ export function PackageCard({ pkg, className, priority }: { pkg: TravelPackage; 
             {price ? (
               <>
                 <span className="block text-[0.65rem] tracking-widest text-muted-foreground uppercase">From</span>
-                <span className="font-display text-3xl leading-none font-extrabold italic">{formatINR(price)}</span>
+                <span className="font-display text-3xl leading-none font-extrabold">{formatINR(price)}</span>
               </>
             ) : (
               <span className="text-sm font-bold text-brand">Quote on request</span>

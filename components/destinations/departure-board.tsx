@@ -51,7 +51,7 @@ export function DepartureBoard({ rows }: { rows: BoardRow[] }) {
                 >
                   <span className="font-mono text-xl font-bold tracking-widest text-sun">{r.code}</span>
                   <span className="min-w-0">
-                    <span className="block truncate font-display text-xl leading-none font-extrabold uppercase sm:text-2xl">{r.name}</span>
+                    <span className="block truncate font-display text-xl leading-none font-extrabold sm:text-2xl">{r.name}</span>
                     <span className="serif-i block truncate text-base text-white/70">{r.tagline}</span>
                   </span>
                   <span className="hidden font-mono text-xs text-white/80 sm:block">{r.months}</span>
@@ -73,7 +73,7 @@ export function DepartureBoard({ rows }: { rows: BoardRow[] }) {
                 <span className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <p className="font-mono text-xs tracking-[0.3em] text-sun">MAA → {cur.code}</p>
-                  <p className="serif mt-1 text-5xl leading-none uppercase">{cur.name}</p>
+                  <p className="serif mt-1 text-5xl leading-none">{cur.name}</p>
                   <p className="mt-2 text-sm text-white/80">From Chennai: {cur.flight}</p>
                 </div>
               </div>

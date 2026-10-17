@@ -20,7 +20,7 @@ export function PageIntro({
       <div className={cn("grid items-end gap-10", aside && "lg:grid-cols-[1.1fr_0.9fr]")}>
         <div>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase">{eyebrow}</p>
-          <h1 className="max-w-4xl text-5xl leading-[0.92] font-extrabold uppercase sm:text-7xl">
+          <h1 className="max-w-4xl text-5xl leading-[0.96] font-extrabold sm:text-7xl">
             <Accent text={title} />
           </h1>
           {children && <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">{children}</p>}

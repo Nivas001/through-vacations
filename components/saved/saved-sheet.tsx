@@ -12,7 +12,7 @@ export function SavedSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent side="right" className="p-6">
-        <SheetTitle className="font-display text-3xl font-extrabold uppercase">Saved trips</SheetTitle>
+        <SheetTitle className="font-display text-3xl font-extrabold">Saved trips</SheetTitle>
         {items.length === 0 ? (
           <div className="mt-6 rounded-2xl border border-dashed p-8 text-center text-muted-foreground">
             <Heart className="mx-auto size-8 text-brand" />
@@ -26,7 +26,7 @@ export function SavedSheet() {
                 <li key={c.slug} className="flex items-center gap-3 rounded-2xl border bg-card p-2">
                   <Image src={c.image} alt="" width={96} height={96} className="size-16 rounded-xl object-cover" />
                   <SheetClose render={<Link href={`/packages/${c.slug}`} />} className="min-w-0 flex-1">
-                    <span className="block truncate font-display text-lg leading-tight font-extrabold uppercase">{c.title}</span>
+                    <span className="block truncate font-display text-lg leading-tight font-extrabold">{c.title}</span>
                     <span className="text-xs text-muted-foreground">{c.nights} nights</span>
                   </SheetClose>
                   <button type="button" onClick={() => toggle(c.slug)} aria-label={`Remove ${c.title}`} className="grid size-9 place-items-center rounded-full text-muted-foreground hover:bg-muted"><X className="size-4" /></button>

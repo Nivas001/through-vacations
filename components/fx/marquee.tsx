@@ -5,7 +5,7 @@ export function Marquee({ items }: { items: string[] }) {
   const row = (hidden?: boolean) => (
     <ul className="flex shrink-0 items-center gap-10 pr-10" aria-hidden={hidden}>
       {items.map((t) => (
-        <li key={t} className="flex items-center gap-10 font-display text-4xl font-extrabold whitespace-nowrap uppercase italic sm:text-6xl">
+        <li key={t} className="flex items-center gap-10 font-display text-4xl font-extrabold whitespace-nowrap uppercase sm:text-6xl">
           {t}
           <Plane className="size-6 -rotate-12 text-sun sm:size-8" />
         </li>

@@ -72,13 +72,13 @@ export function HoneymoonQuiz({ trips }: { trips: QuizTrip[] }) {
         {step >= total && (
           <div className="fade-up">
             <p className="flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-sun uppercase"><Heart className="size-4 fill-sun" /> Your matches</p>
-            <h3 className="mt-3 text-4xl leading-[0.95] font-extrabold uppercase sm:text-5xl">{results[0]?.t.destination} <span className="serif-i font-extrabold text-sun">first.</span></h3>
+            <h3 className="mt-3 text-4xl leading-[1] font-extrabold sm:text-5xl">{results[0]?.t.destination} <span className="accent-word text-sun">first.</span></h3>
             <ol className="mt-8 grid gap-4 lg:grid-cols-3">
               {results.map(({ t, why }, k) => (
                 <li key={t.slug} className={cn("overflow-hidden rounded-[1.5rem] bg-card text-card-foreground card-lift", k === 0 && "ring-4 ring-sun")}>
                   <div className="relative aspect-[4/3]"><Image src={t.image} alt="" fill sizes="(min-width:1024px) 30vw, 100vw" className="object-cover" />{k === 0 && <span className="absolute top-3 left-3 rounded-full bg-sun px-3 py-1 text-[0.65rem] font-bold tracking-wider text-sun-foreground uppercase">Best match</span>}</div>
                   <div className="p-5">
-                    <p className="font-display text-2xl leading-none font-extrabold uppercase">{t.title}</p>
+                    <p className="font-display text-2xl leading-none font-extrabold">{t.title}</p>
                     <p className="serif-i mt-1 text-muted-foreground">{t.tagline}</p>
                     <ul className="mt-3 space-y-1 text-sm text-muted-foreground">{(why.length ? why : [t.line]).slice(0, 3).map((w) => <li key={w}>· {w}</li>)}</ul>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -98,7 +98,7 @@ export function HoneymoonQuiz({ trips }: { trips: QuizTrip[] }) {
 }
 
 function Q({ title, children }: { title: string; children: React.ReactNode }) {
-  return <div><h3 className="text-3xl leading-[0.98] font-extrabold uppercase sm:text-5xl">{title}</h3><div className="mt-8">{children}</div></div>;
+  return <div><h3 className="text-3xl leading-[1] font-extrabold sm:text-5xl">{title}</h3><div className="mt-8">{children}</div></div>;
 }
 function Grid({ children }: { children: React.ReactNode }) {
   return <div className="grid gap-3 sm:grid-cols-2">{children}</div>;
@@ -106,7 +106,7 @@ function Grid({ children }: { children: React.ReactNode }) {
 function Opt({ title, sub, onClick, small }: { title: string; sub?: string; onClick: () => void; small?: boolean }) {
   return (
     <button type="button" onClick={onClick} className={cn("group rounded-2xl border-2 border-white/30 bg-white/10 text-left backdrop-blur transition hover:-translate-y-0.5 hover:border-sun hover:bg-white/20", small ? "px-4 py-4 text-center font-bold" : "p-5")}>
-      <span className={cn("block font-bold", !small && "font-display text-2xl leading-tight font-extrabold uppercase")}>{title}</span>
+      <span className={cn("block font-bold", !small && "font-display text-2xl leading-tight font-extrabold")}>{title}</span>
       {sub && <span className="mt-1 block text-sm text-white/75">{sub}</span>}
     </button>
   );

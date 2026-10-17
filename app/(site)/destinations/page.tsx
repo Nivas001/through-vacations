@@ -47,7 +47,7 @@ export default async function DestinationsPage() {
                   <Image src={d.image} alt="" fill sizes="(min-width:640px) 25vw, 100vw" quality={85} className="object-cover transition duration-700 group-hover:scale-105" />
                   <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <span className="absolute inset-x-5 bottom-4 flex items-end justify-between text-white">
-                    <span className="serif text-3xl leading-none uppercase sm:text-4xl">{d.name}</span>
+                    <span className="serif text-3xl leading-none sm:text-4xl">{d.name}</span>
                     <ArrowUpRight className="mb-1 size-5 opacity-0 transition group-hover:opacity-100" />
                   </span>
                 </Link>

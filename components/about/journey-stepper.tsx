@@ -18,8 +18,8 @@ export function JourneyStepper() {
         {steps.map((x, k) => (
           <li key={x.n}>
             <button type="button" role="tab" aria-selected={k === i} onClick={() => setI(k)} className={cn("flex w-full items-center gap-4 rounded-2xl border-2 p-4 text-left transition", k === i ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/25" : "bg-card hover:border-primary/60")}>
-              <span className={cn("font-display text-3xl leading-none font-extrabold italic", k === i ? "text-sun" : "text-brand")}>{x.n}</span>
-              <span className="font-display text-xl leading-none font-extrabold uppercase">{x.t}</span>
+              <span className={cn("font-display text-3xl leading-none font-extrabold", k === i ? "text-sun" : "text-brand")}>{x.n}</span>
+              <span className="font-display text-xl leading-none font-extrabold">{x.t}</span>
             </button>
           </li>
         ))}

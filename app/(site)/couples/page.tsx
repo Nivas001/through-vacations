@@ -61,8 +61,8 @@ export default async function CouplesPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent" />
           <div className="relative flex min-h-[inherit] flex-col justify-end px-5 pt-28 pb-12 sm:px-12 sm:pb-16">
             <p className="fade-up inline-flex w-fit items-center gap-2 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase"><Heart className="size-3.5 fill-current" /> Couples and honeymoons</p>
-            <h1 className="fade-up mt-5 max-w-4xl font-display text-[2.6rem] leading-[0.88] font-extrabold uppercase sm:text-7xl lg:text-8xl" style={{ animationDelay: "80ms" }}>
-              Two of you. <span className="serif-i block font-extrabold text-sun">One trip.</span>
+            <h1 className="fade-up mt-5 max-w-4xl font-display text-[2.6rem] leading-[0.95] font-extrabold sm:text-7xl lg:text-8xl" style={{ animationDelay: "80ms" }}>
+              Two of you.<br /><span className="text-sun">One trip.</span>
             </h1>
             <p className="fade-up mt-6 max-w-xl text-lg text-white/90" style={{ animationDelay: "160ms" }}>Honeymoons, anniversaries and first trips together, planned slowly and personally from Pondicherry.</p>
             <div className="fade-up mt-8 flex flex-wrap gap-3" style={{ animationDelay: "240ms" }}>
@@ -79,8 +79,8 @@ export default async function CouplesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* intro */}
         <Reveal>
-          <p className="mx-auto mt-20 max-w-3xl text-center font-display text-3xl leading-[1.05] font-extrabold uppercase sm:text-5xl">
-            A good couples&apos; trip is not about <span className="serif-i text-brand">more.</span> It is about the right <span className="serif-i text-brand">pace</span> and a few moments you will talk about for years.
+          <p className="mx-auto mt-20 max-w-3xl text-center font-display text-3xl leading-[1.05] font-extrabold sm:text-5xl">
+            A good couples&apos; trip is not about <span className="accent-word text-brand">more.</span> It is about the right <span className="accent-word text-brand">pace</span> and a few moments you will talk about for years.
           </p>
         </Reveal>
 
@@ -107,7 +107,7 @@ export default async function CouplesPage() {
                 <li className="list-none">
                   <SpotlightCard className="card-lift h-full rounded-[1.5rem] border bg-card p-6">
                     <span className="grid size-12 place-items-center rounded-2xl bg-sun text-sun-foreground"><Icon className="size-6" /></span>
-                    <h3 className="mt-5 text-2xl font-extrabold uppercase">{t}</h3>
+                    <h3 className="mt-5 text-2xl font-extrabold">{t}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{d}</p>
                   </SpotlightCard>
                 </li>
@@ -123,9 +123,9 @@ export default async function CouplesPage() {
             {occasions.map((o, i) => (
               <li key={o.id}>
                 <a href={`/plan?occasion=${o.id}`} className="group grain relative flex h-full flex-col justify-between overflow-hidden rounded-[1.5rem] bg-primary p-6 text-white transition hover:-translate-y-1">
-                  <span className="text-outline font-display text-6xl leading-none font-extrabold italic text-sun">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-outline font-display text-6xl leading-none font-extrabold text-sun">{String(i + 1).padStart(2, "0")}</span>
                   <span className="mt-10 block">
-                    <span className="block font-display text-3xl leading-none font-extrabold uppercase">{o.label}</span>
+                    <span className="block font-display text-3xl leading-none font-extrabold">{o.label}</span>
                     <span className="mt-2 block text-sm text-white/80">{o.note}</span>
                     <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-sun">Start planning <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>
                   </span>
@@ -149,7 +149,7 @@ export default async function CouplesPage() {
           <div>
             <SectionHeading eyebrow="Questions" title="Good to *know*" />
             <div className="card-lift mt-8 rounded-[1.5rem] border-2 border-dashed border-sun bg-accent p-6 text-accent-foreground">
-              <p className="flex items-center gap-2 font-display text-2xl leading-none font-extrabold uppercase"><Gift className="size-5" /> Couple offers</p>
+              <p className="flex items-center gap-2 font-display text-2xl leading-none font-extrabold"><Gift className="size-5" /> Couple offers</p>
               <p className="mt-3 text-sm">We do not publish fixed discounts. Ask for current couple and honeymoon offers when you enquire, and mention your wedding date.</p>
               <ExternalButton href={whatsappLink("Hi Through Vacations! We're a couple planning a trip. Could you share any current couple offers?")} className="mt-4 h-11 px-5">Ask on WhatsApp <ArrowUpRight /></ExternalButton>
             </div>
@@ -169,7 +169,7 @@ export default async function CouplesPage() {
           <div className="relative overflow-hidden rounded-[1.75rem] bg-sun px-6 py-16 text-center text-sun-foreground sm:px-16 sm:py-24">
             <Wave className="opacity-[0.25] invert" />
             <div className="relative">
-              <h2 className="mx-auto max-w-3xl text-5xl leading-[0.9] font-extrabold uppercase sm:text-7xl">Tell us about <span className="serif-i font-extrabold">the two of you.</span></h2>
+              <h2 className="mx-auto max-w-3xl text-5xl leading-[0.95] font-extrabold sm:text-7xl">Tell us about <span className="accent-word accent-light text-primary">the two of you.</span></h2>
               <p className="mx-auto mt-6 max-w-lg text-sun-foreground/80">A planner replies with a personal itinerary and quote, with your occasion in mind.</p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <LinkButton href="/plan?occasion=honeymoon" size="lg" className="h-12 bg-ink px-7 text-base text-white hover:bg-white hover:text-ink dark:bg-ink dark:text-background">Plan our trip <ArrowUpRight /></LinkButton>

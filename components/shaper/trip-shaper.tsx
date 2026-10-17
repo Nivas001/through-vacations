@@ -102,7 +102,7 @@ export function TripShaper({ packages, initial }: { packages: TravelPackage[]; i
           <div className="mt-4 flex flex-wrap items-end gap-6">
             <p className="font-display text-8xl leading-[0.8] font-extrabold sm:text-9xl" aria-label={`Effort ${e.score} out of 5`}>{e.score}<span className="text-3xl text-white/60">/5</span></p>
             <div>
-              <p className="serif-i text-4xl leading-none font-extrabold text-sun uppercase sm:text-5xl">{e.label}</p>
+              <p className="font-display text-4xl leading-none font-extrabold text-sun sm:text-5xl">{e.label}</p>
               <p className="mt-2 text-sm text-white/80">Planning effort. Higher means more hours on the move and more to organise.</p>
             </div>
           </div>
@@ -142,13 +142,13 @@ export function TripShaper({ packages, initial }: { packages: TravelPackage[]; i
           <ol className="mt-4 grid gap-2 sm:grid-cols-2">
             {shaped.days.map((d) => (
               <li key={d.index} className={cn("flex items-center gap-3 rounded-xl border px-3 py-2.5 text-sm transition", d.kept ? "bg-card" : "border-dashed opacity-45")}>
-                <span className="font-display text-xl font-extrabold text-brand italic">{String(d.index + 1).padStart(2, "0")}</span>
+                <span className="font-display text-xl font-extrabold text-brand">{String(d.index + 1).padStart(2, "0")}</span>
                 <span className={cn("flex-1 truncate", !d.kept && "line-through")}>{d.title}</span>
                 {d.kept ? <Check className="size-4 text-brand" /> : <X className="size-4" />}
               </li>
             ))}
             {Array.from({ length: shaped.extra }, (_, k) => (
-              <li key={`x${k}`} className="flex items-center gap-3 rounded-xl border border-dashed border-sun bg-sun/10 px-3 py-2.5 text-sm"><span className="font-display text-xl font-extrabold italic">+</span> Extra day: free time or a side trip</li>
+              <li key={`x${k}`} className="flex items-center gap-3 rounded-xl border border-dashed border-sun bg-sun/10 px-3 py-2.5 text-sm"><span className="font-display text-xl font-extrabold">+</span> Extra day: free time or a side trip</li>
             ))}
           </ol>
         </Panel>
@@ -171,7 +171,7 @@ export function TripShaper({ packages, initial }: { packages: TravelPackage[]; i
 
         <div className="flex flex-wrap items-center gap-4 rounded-[1.5rem] bg-sun p-6 text-sun-foreground sm:p-8">
           <div className="flex-1">
-            <p className="font-display text-3xl leading-none font-extrabold uppercase">Happy with this shape?</p>
+            <p className="font-display text-3xl leading-none font-extrabold">Happy with this shape?</p>
             <p className="mt-2 text-sm opacity-80">Send it to a planner. Your choices come with you, prices arrive in your personal quote.</p>
           </div>
           <Link href={`/plan?${plan}`} className="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-7 text-sm font-bold text-white transition hover:bg-white hover:text-ink">Send to a planner <ArrowUpRight className="size-4" /></Link>
@@ -186,7 +186,7 @@ function Label({ n, children }: { n: string; children: React.ReactNode }) {
   return <p className="flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase"><span className="grid size-5 place-items-center rounded-full bg-sun text-[0.65rem] text-sun-foreground">{n}</span>{children}</p>;
 }
 function Panel({ title, children }: { title: string; children: React.ReactNode }) {
-  return <section className="card-lift rounded-[1.5rem] border bg-card p-5 sm:p-6"><h2 className="mb-4 text-2xl font-extrabold uppercase">{title}</h2>{children}</section>;
+  return <section className="card-lift rounded-[1.5rem] border bg-card p-5 sm:p-6"><h2 className="mb-4 text-2xl font-extrabold">{title}</h2>{children}</section>;
 }
 function Counter({ icon, label, value, min, max, onChange }: { icon: React.ReactNode; label: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
   return (

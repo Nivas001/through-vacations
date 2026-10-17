@@ -10,7 +10,7 @@ export function PriceTicket({ pkg, className }: { pkg: TravelPackage; className?
   return (
     <div className={cn("ticket grid sm:grid-cols-[1.4fr_1fr]", className)}>
       <div className="p-6 sm:p-8">
-        <p className="font-display text-3xl font-extrabold uppercase">Package</p>
+        <p className="font-display text-3xl font-extrabold">Package</p>
         <ul className="mt-4 space-y-2.5 text-sm">
           {pkg.inclusions.slice(0, 6).map((i) => (
             <li key={i} className="flex gap-2.5">
@@ -23,13 +23,13 @@ export function PriceTicket({ pkg, className }: { pkg: TravelPackage; className?
       <div className="ticket-divider flex flex-col justify-center p-6 sm:p-8">
         {price ? (
           <>
-            <p className="font-display text-4xl leading-none font-extrabold italic sm:text-5xl">{formatINR(price)}/-</p>
+            <p className="font-display text-4xl leading-none font-extrabold sm:text-5xl">{formatINR(price)}/-</p>
             <p className="mt-3 text-lg">Per person</p>
             <p className="mt-1 text-xs opacity-75">Indicative, confirmed in your quote</p>
           </>
         ) : (
           <>
-            <p className="font-display text-3xl leading-none font-extrabold uppercase">Tailored to you</p>
+            <p className="font-display text-3xl leading-none font-extrabold">Tailored to you</p>
             <p className="mt-3 text-sm opacity-80">{pkg.priceNote}</p>
           </>
         )}

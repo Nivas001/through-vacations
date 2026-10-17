@@ -39,7 +39,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20" />
           <div className="relative flex min-h-[inherit] flex-col justify-end p-6 sm:p-12">
             <p className="inline-flex w-fit rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase">{d.region}</p>
-            <h1 className="serif mt-4 text-[3.2rem] leading-[0.9] uppercase sm:text-[7.5rem]">{d.name}</h1>
+            <h1 className="serif mt-4 text-[3.2rem] leading-[0.95] sm:text-[7.5rem]">{d.name}</h1>
             <p className="mt-3 max-w-xl text-lg text-white/85">{p.summary}</p>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
           <section className="mt-20 grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionHeading eyebrow="Day one" title={`How it *begins*`} />
             <div className="card-lift rounded-[1.5rem] border bg-card p-6 sm:p-8">
-              <p className="serif text-3xl leading-none uppercase">{firstDay.title}</p>
+              <p className="serif text-3xl leading-none">{firstDay.title}</p>
               <p className="mt-4 text-muted-foreground">{firstDay.description}</p>
               {firstDay.tip && <p className="mt-4 rounded-xl bg-accent p-4 text-sm text-accent-foreground ring-1 ring-sun/60"><b>Planner&apos;s note.</b> {firstDay.tip}</p>}
             </div>

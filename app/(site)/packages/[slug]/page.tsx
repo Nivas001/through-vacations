@@ -46,7 +46,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20" />
           <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-10">
             <p className="inline-flex items-center gap-1.5 rounded-full bg-sun px-3.5 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] text-sun-foreground uppercase"><MapPin className="size-3.5" /> {pkg.destination} · {pkg.region}</p>
-            <h1 className="mt-3 max-w-4xl text-5xl leading-[0.9] font-extrabold uppercase sm:text-7xl">{pkg.title}</h1>
+            <h1 className="mt-3 max-w-4xl text-5xl leading-[0.95] font-extrabold sm:text-7xl">{pkg.title}</h1>
             <p className="serif-i mt-2 text-2xl text-white/90 sm:text-4xl">{pkg.tagline}</p>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
                   return (
                     <li key={d.title} className="card-lift rounded-[1.25rem] border bg-card p-4">
                       <p className="flex items-center gap-2 text-[0.65rem] font-bold tracking-[0.2em] text-brand uppercase"><Icon className="size-4" /> {d.when}</p>
-                      <p className="mt-1 font-display text-lg leading-tight font-extrabold uppercase">{d.title}</p>
+                      <p className="mt-1 font-display text-lg leading-tight font-extrabold">{d.title}</p>
                       <p className="mt-1 text-sm text-muted-foreground">{d.text}</p>
                     </li>
                   );

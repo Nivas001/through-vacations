@@ -12,7 +12,7 @@ export function HeartButton({ slug, className }: { slug: string; className?: str
       onClick={() => toggle(slug)}
       aria-pressed={on}
       aria-label={on ? "Remove from saved trips" : "Save this trip"}
-      className={cn("grid size-10 place-items-center rounded-full bg-white/85 text-ink shadow-md backdrop-blur transition hover:scale-110 active:scale-95", className)}
+      className={cn("grid size-10 place-items-center rounded-full bg-white/85 text-sun-foreground shadow-md backdrop-blur transition hover:scale-110 active:scale-95", className)}
     >
       <Heart className={cn("size-5 transition", on ? "fill-rose-500 stroke-rose-500 scale-110" : "")} />
     </button>

@@ -32,7 +32,7 @@ export default async function StoryPage({ params }: PageProps<"/journal/[slug]">
       <div className="mx-auto max-w-4xl px-4 pt-6 sm:px-6">
         <Link href="/journal" className="flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" /> Journal</Link>
         <p className="mt-8 flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand uppercase">{s.kicker}<span className="text-muted-foreground">·</span><Clock className="size-3.5" />{s.read}</p>
-        <h1 className="serif mt-3 text-4xl leading-[1.02] uppercase sm:text-6xl">{s.title}</h1>
+        <h1 className="serif mt-3 text-4xl leading-[1.02] sm:text-6xl">{s.title}</h1>
       </div>
       <div className="mx-auto mt-10 max-w-6xl px-4 sm:px-6">
         <Carousel
@@ -47,9 +47,9 @@ export default async function StoryPage({ params }: PageProps<"/journal/[slug]">
         <div className="max-w-2xl space-y-6 text-lg leading-relaxed">
           {s.body.map((p, k) =>
             p.startsWith("## ") ? (
-              <Reveal key={k}><h2 className="pt-8 text-3xl font-extrabold uppercase">{p.slice(3)}</h2></Reveal>
+              <Reveal key={k}><h2 className="pt-8 text-3xl font-extrabold">{p.slice(3)}</h2></Reveal>
             ) : p.startsWith("> ") ? (
-              <Reveal key={k}><blockquote className="serif-i border-l-4 border-sun pl-6 text-3xl leading-tight font-bold text-brand">{p.slice(2)}</blockquote></Reveal>
+              <Reveal key={k}><blockquote className="border-l-4 border-sun pl-6 font-display text-3xl leading-tight font-bold tracking-[-0.025em] text-brand">{p.slice(2)}</blockquote></Reveal>
             ) : (
               <Reveal key={k}><p className={k === 0 ? "drop-cap text-xl leading-snug text-foreground" : "text-muted-foreground"}>{p}</p></Reveal>
             ),
@@ -67,7 +67,7 @@ export default async function StoryPage({ params }: PageProps<"/journal/[slug]">
               </div>
               <div className="p-4">
                 <p className="text-[0.65rem] font-bold tracking-[0.2em] text-brand uppercase">This trip</p>
-                <p className="mt-1 font-display text-2xl leading-tight font-extrabold uppercase">{pkg.title}</p>
+                <p className="mt-1 font-display text-2xl leading-tight font-extrabold">{pkg.title}</p>
                 <p className="serif-i text-lg text-muted-foreground">{pkg.tagline} · {pkg.durationLabel}</p>
                 <LinkButton href={`/packages/${pkg.slug}`} className="mt-4 h-11 w-full">See the day-by-day plan <ArrowUpRight /></LinkButton>
                 <LinkButton href={`/trip-shaper?trip=${pkg.slug}`} variant="outline" className="mt-2 h-11 w-full border-2">Shape this trip</LinkButton>
