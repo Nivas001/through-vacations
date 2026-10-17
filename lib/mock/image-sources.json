@@ -1,0 +1,490 @@
+[
+  {
+    "name": "thailand",
+    "page": "https://unsplash.com/photos/an-aerial-view-of-a-sandy-beach-surrounded-by-mountains-wEvFdxU7IL0",
+    "url": "https://images.unsplash.com/photo-1673680909625-fa90e686d457?auto=format&fit=max&w=1800&q=85",
+    "file": "/media/thailand.webp",
+    "author": "Unsplash contributor",
+    "license": "Unsplash License"
+  },
+  {
+    "name": "bali",
+    "page": "https://unsplash.com/photos/landscape-photo-of-rice-terraces-7UD-8U1couI",
+    "url": "https://images.unsplash.com/photo-1555400038-a088c772c8cd?auto=format&fit=max&w=1800&q=85",
+    "file": "/media/bali.webp",
+    "author": "Unsplash contributor",
+    "license": "Unsplash License"
+  },
+  {
+    "name": "dubai",
+    "page": "https://unsplash.com/photos/dubais-skyline-featuring-the-burj-khalifa-lMo2HjtoUpM",
+    "url": "https://images.unsplash.com/photo-1745750434535-5943ef2fd31a?auto=format&fit=max&w=1800&q=85",
+    "file": "/media/dubai.webp",
+    "author": "Unsplash contributor",
+    "license": "Unsplash License"
+  },
+  {
+    "name": "pondicherry",
+    "page": "https://unsplash.com/photos/a-yellow-building-with-windows-SfWugDiqWxM",
+    "url": "https://images.unsplash.com/photo-1662572594228-3aca8503b782?auto=format&fit=max&w=1400&q=85",
+    "file": "/media/pondicherry.webp",
+    "author": "Unsplash contributor",
+    "license": "Unsplash License"
+  },
+  {
+    "name": "kashmir",
+    "file": "/media/kashmir.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Dal_Lake_Hazratbal_Srinagar.jpg",
+    "author": "Suhail Skindar Sofi",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dal%20Lake%20Hazratbal%20Srinagar.jpg?width=2400"
+  },
+  {
+    "name": "kashmir-2",
+    "file": "/media/kashmir-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Dal_Lake,_Srinagar,_Jammu_and_Kashmir.jpg",
+    "author": "Dashrathgoyal85",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dal%20Lake%2C%20Srinagar%2C%20Jammu%20and%20Kashmir.jpg?width=2400"
+  },
+  {
+    "name": "kashmir-3",
+    "file": "/media/kashmir-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Shalimar_Bagh,_Srinagar.jpg",
+    "author": "Pradeepkjoshi",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shalimar%20Bagh%2C%20Srinagar.jpg?width=2400"
+  },
+  {
+    "name": "munnar-alleppey",
+    "file": "/media/munnar-alleppey.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Munnar_-_Tea_Plantations.jpg",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Munnar%20-%20Tea%20Plantations.jpg?width=2400"
+  },
+  {
+    "name": "munnar-alleppey-2",
+    "file": "/media/munnar-alleppey-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Nedumudy_-_Houseboat.jpg",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nedumudy%20-%20Houseboat.jpg?width=2400"
+  },
+  {
+    "name": "munnar-alleppey-3",
+    "file": "/media/munnar-alleppey-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Mattupetty_Lake_View.jpg",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mattupetty%20Lake%20View.jpg?width=2400"
+  },
+  {
+    "name": "munnar-alleppey-4",
+    "file": "/media/munnar-alleppey-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Eravikulam_National_Park-WUS07186.jpg",
+    "author": "Rainer Halama",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Eravikulam%20National%20Park-WUS07186.jpg?width=2400"
+  },
+  {
+    "name": "ladakh",
+    "file": "/media/ladakh.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Sand_dunes_of_Nubra_Valley,_Ladakh.jpg",
+    "author": "Mohanrangaphotography",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sand%20dunes%20of%20Nubra%20Valley%2C%20Ladakh.jpg?width=2400"
+  },
+  {
+    "name": "ladakh-2",
+    "file": "/media/ladakh-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Pangong_Tso_Lake_1.jpg",
+    "author": "Neek-Theri",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pangong%20Tso%20Lake%201.jpg?width=2400"
+  },
+  {
+    "name": "ladakh-3",
+    "file": "/media/ladakh-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Shanti_Stupa_Ladakh.jpg",
+    "author": "ClickAR89",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shanti%20Stupa%20Ladakh.jpg?width=2400"
+  },
+  {
+    "name": "goa",
+    "file": "/media/goa.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Anjuna_Beach,_Goa,_India,_Legendary_Curlies_beach_shack.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Anjuna%20Beach%2C%20Goa%2C%20India%2C%20Legendary%20Curlies%20beach%20shack.jpg?width=2400"
+  },
+  {
+    "name": "goa-2",
+    "file": "/media/goa-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Mandrem_Beach_and_Mandrem_River,_Mandrem,_Goa,_India.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mandrem%20Beach%20and%20Mandrem%20River%2C%20Mandrem%2C%20Goa%2C%20India.jpg?width=2400"
+  },
+  {
+    "name": "goa-3",
+    "file": "/media/goa-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Beaching_Fishing_Boat_Goa_Jan19_DSC06163.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves.  Feel free to use my photos, but please mention me as the author.  I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information.  Please contact me before commercial use.\n\n\n\nPlease do not upload an edited image here without consulting me.  I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Beaching%20Fishing%20Boat%20Goa%20Jan19%20DSC06163.jpg?width=2400"
+  },
+  {
+    "name": "goa-4",
+    "file": "/media/goa-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Laterite_Cola_Bay_Goa_Jan19_DSC00317.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves.  Feel free to use my photos, but please mention me as the author.  I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information.  Please contact me before commercial use.\n\n\n\nPlease do not upload an edited image here without consulting me.  I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Laterite%20Cola%20Bay%20Goa%20Jan19%20DSC00317.jpg?width=2400"
+  },
+  {
+    "name": "udaipur-jaipur",
+    "file": "/media/udaipur-jaipur.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:20191207_Lake_Pichola,_City_Palace,_Udaipur,_1516_7254.jpg",
+    "author": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/20191207%20Lake%20Pichola%2C%20City%20Palace%2C%20Udaipur%2C%201516%207254.jpg?width=2400"
+  },
+  {
+    "name": "udaipur-jaipur-2",
+    "file": "/media/udaipur-jaipur-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Taj_Lake_Palace_Udaipur_from_City_Palace.jpg",
+    "author": "Navneet Sharma",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Taj%20Lake%20Palace%20Udaipur%20from%20City%20Palace.jpg?width=2400"
+  },
+  {
+    "name": "udaipur-jaipur-3",
+    "file": "/media/udaipur-jaipur-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg",
+    "author": "Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/East%20facade%20Hawa%20Mahal%20Jaipur%20from%20ground%20level%20%28July%202022%29%20-%20img%2001.jpg?width=2400"
+  },
+  {
+    "name": "udaipur-jaipur-4",
+    "file": "/media/udaipur-jaipur-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Hawa_Mahal_east_facade_(14-07-2022).jpg",
+    "author": "Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hawa%20Mahal%20east%20facade%20%2814-07-2022%29.jpg?width=2400"
+  },
+  {
+    "name": "maldives",
+    "file": "/media/maldives.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Malediven_Sandbank_(28800504836).jpg",
+    "author": "dronepicr",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Malediven%20Sandbank%20%2828800504836%29.jpg?width=2400"
+  },
+  {
+    "name": "maldives-2",
+    "file": "/media/maldives-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Diamonds_Thudufushi_Beach_and_Water_Villas,_May_2017_-04.jpg",
+    "author": "Martin Falbisoner",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Diamonds%20Thudufushi%20Beach%20and%20Water%20Villas%2C%20May%202017%20-04.jpg?width=2400"
+  },
+  {
+    "name": "maldives-3",
+    "file": "/media/maldives-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Strand_Malediven_Velidhu_Dezember_2005.JPG",
+    "author": "Steevie schimpfe hier :-)",
+    "license": "CC BY-SA 2.0 de",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Strand%20Malediven%20Velidhu%20Dezember%202005.JPG?width=2400"
+  },
+  {
+    "name": "maldives-4",
+    "file": "/media/maldives-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Baa_atoll_islands.JPG",
+    "author": "Frédéric Ducarme",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Baa%20atoll%20islands.JPG?width=2400"
+  },
+  {
+    "name": "maldives-5",
+    "file": "/media/maldives-5.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:H%C3%A4ngematte_Chillen_Malediven_(29367163651).jpg",
+    "author": "dronepicr",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/H%C3%A4ngematte%20Chillen%20Malediven%20%2829367163651%29.jpg?width=2400"
+  },
+  {
+    "name": "singapore",
+    "file": "/media/singapore.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Marina_Bay_Sands_and_illuminated_polyhedral_building_Louis_Vuitton_over_the_water_at_blue_hour_with_pink_clouds_in_Singapore.jpg",
+    "author": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Marina%20Bay%20Sands%20and%20illuminated%20polyhedral%20building%20Louis%20Vuitton%20over%20the%20water%20at%20blue%20hour%20with%20pink%20clouds%20in%20Singapore.jpg?width=2400"
+  },
+  {
+    "name": "singapore-2",
+    "file": "/media/singapore-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Singapore_(SG),_Gardens_By_The_Bay_--_2019_--_4468.jpg",
+    "author": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Singapore%20%28SG%29%2C%20Gardens%20By%20The%20Bay%20--%202019%20--%204468.jpg?width=2400"
+  },
+  {
+    "name": "singapore-3",
+    "file": "/media/singapore-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:ArtScience_Museum,_Marina_Bay_Sands,_Singapore.jpg",
+    "author": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/ArtScience%20Museum%2C%20Marina%20Bay%20Sands%2C%20Singapore.jpg?width=2400"
+  },
+  {
+    "name": "sri-lanka",
+    "file": "/media/sri-lanka.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:SL_Demodara_near_Ella_asv2020-01_img02.jpg",
+    "author": "A.Savin",
+    "license": "FAL",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SL%20Demodara%20near%20Ella%20asv2020-01%20img02.jpg?width=2400"
+  },
+  {
+    "name": "sri-lanka-2",
+    "file": "/media/sri-lanka-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Tea-plantation_Nuwara_Eliya-2567.jpg",
+    "author": "Bergentroll",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tea-plantation%20Nuwara%20Eliya-2567.jpg?width=2400"
+  },
+  {
+    "name": "sri-lanka-3",
+    "file": "/media/sri-lanka-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Kandy_Sri_Lanka_Temple_of_the_tooth.jpg",
+    "author": "Thimuth",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kandy%20Sri%20Lanka%20Temple%20of%20the%20tooth.jpg?width=2400"
+  },
+  {
+    "name": "sri-lanka-4",
+    "file": "/media/sri-lanka-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Nine-Arch_Bridge_in_Sri_Lanka.jpg",
+    "author": "Ravindu Thaksara",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nine-Arch%20Bridge%20in%20Sri%20Lanka.jpg?width=2400"
+  },
+  {
+    "name": "bangkok-pattaya",
+    "file": "/media/bangkok-pattaya.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_30.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Templo%20Wat%20Arun%2C%20Bangkok%2C%20Tailandia%2C%202013-08-22%2C%20DD%2030.jpg?width=2400"
+  },
+  {
+    "name": "bangkok-pattaya-2",
+    "file": "/media/bangkok-pattaya-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_37.jpg",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Templo%20Wat%20Arun%2C%20Bangkok%2C%20Tailandia%2C%202013-08-22%2C%20DD%2037.jpg?width=2400"
+  },
+  {
+    "name": "shimla-manali-amritsar",
+    "file": "/media/shimla-manali-amritsar.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Beas_Valley_-_Palchan_-_Kullu_2014-05-10_(edit).jpg",
+    "author": "Original:  Biswarup Ganguly\nDerivative work:  UnpetitproleX",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Beas%20Valley%20-%20Palchan%20-%20Kullu%202014-05-10%20%28edit%29.jpg?width=2400"
+  },
+  {
+    "name": "shimla-manali-amritsar-2",
+    "file": "/media/shimla-manali-amritsar-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Golden_Temple,_Amritsar_01.jpg",
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Golden%20Temple%2C%20Amritsar%2001.jpg?width=2400"
+  },
+  {
+    "name": "shimla-manali-amritsar-3",
+    "file": "/media/shimla-manali-amritsar-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Hidimba_Devi_Temple,_Dhungri_Manali.jpg",
+    "author": "Ganesh Mohan T",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hidimba%20Devi%20Temple%2C%20Dhungri%20Manali.jpg?width=2400"
+  },
+  {
+    "name": "shimla-manali-amritsar-4",
+    "file": "/media/shimla-manali-amritsar-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Christ_Church_at_the_Ridge,_Shimla.jpg",
+    "author": "Laluttam",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Christ%20Church%20at%20the%20Ridge%2C%20Shimla.jpg?width=2400"
+  },
+  {
+    "name": "shimla-manali-amritsar-5",
+    "file": "/media/shimla-manali-amritsar-5.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Solang_valley_under_snow,_2015.jpg",
+    "author": "Bleezebub",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Solang%20valley%20under%20snow%2C%202015.jpg?width=2400"
+  },
+  {
+    "name": "malaysia",
+    "file": "/media/malaysia.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur_Malaysia_Petronas-Twin-Towers-01.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kuala%20Lumpur%20Malaysia%20Petronas-Twin-Towers-01.jpg?width=2400"
+  },
+  {
+    "name": "malaysia-2",
+    "file": "/media/malaysia-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Beauty_of_Genting_Highlands.jpg",
+    "author": "Taha Akbari",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Beauty%20of%20Genting%20Highlands.jpg?width=2400"
+  },
+  {
+    "name": "malaysia-3",
+    "file": "/media/malaysia-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Gombak_Selangor_Batu-Caves-01.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gombak%20Selangor%20Batu-Caves-01.jpg?width=2400"
+  },
+  {
+    "name": "malaysia-4",
+    "file": "/media/malaysia-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur,_Malaysia,_Petronas_Towers_at_night.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kuala%20Lumpur%2C%20Malaysia%2C%20Petronas%20Towers%20at%20night.jpg?width=2400"
+  },
+  {
+    "name": "coorg",
+    "file": "/media/coorg.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:ABBEY_FALLS_,COORG_,KARNATAKA.jpg",
+    "author": "AmanDshutterbug",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/ABBEY%20FALLS%20%2CCOORG%20%2CKARNATAKA.jpg?width=2400"
+  },
+  {
+    "name": "coorg-2",
+    "file": "/media/coorg-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Coffee_Shade_Trees_Paddy_Fields_Coorg_Feb24_R16_07670.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves.  Feel free to use my photos, but please mention me as the author.  I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information.  Please contact me before commercial use.\n\n\n\nPlease do not upload an edited image here without consulting me.  I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Coffee%20Shade%20Trees%20Paddy%20Fields%20Coorg%20Feb24%20R16%2007670.jpg?width=2400"
+  },
+  {
+    "name": "coorg-3",
+    "file": "/media/coorg-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Raja%27s_Tomb,_Madikeri,_Kodagu_(Coorg),_Karnataka,_India.jpg",
+    "author": "Craftofolio.media",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%27s%20Tomb%2C%20Madikeri%2C%20Kodagu%20%28Coorg%29%2C%20Karnataka%2C%20India.jpg?width=2400"
+  },
+  {
+    "name": "andaman",
+    "file": "/media/andaman.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach,_tropical_bliss,_Andaman_Islands.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Havelock%20Island%2C%20Radhanagar%20Beach%2C%20tropical%20bliss%2C%20Andaman%20Islands.jpg?width=2400"
+  },
+  {
+    "name": "andaman-2",
+    "file": "/media/andaman-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach_sunset,_Andaman_Islands.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Havelock%20Island%2C%20Radhanagar%20Beach%20sunset%2C%20Andaman%20Islands.jpg?width=2400"
+  },
+  {
+    "name": "andaman-3",
+    "file": "/media/andaman-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Cellular_Jail,_Andaman,_Port_Blair,_India.jpg",
+    "author": "Harvinder Chandigarh",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cellular%20Jail%2C%20Andaman%2C%20Port%20Blair%2C%20India.jpg?width=2400"
+  },
+  {
+    "name": "bali-2",
+    "file": "/media/bali-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Tegallalang_Rice_Terraces_Bali_1.jpg",
+    "author": "Philip Nalangan",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tegallalang%20Rice%20Terraces%20Bali%201.jpg?width=2400"
+  },
+  {
+    "name": "bali-3",
+    "file": "/media/bali-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Tanah_Lot,_Bali,_Indonesia,_20220827_1008_1159.jpg",
+    "author": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tanah%20Lot%2C%20Bali%2C%20Indonesia%2C%2020220827%201008%201159.jpg?width=2400"
+  },
+  {
+    "name": "pondicherry-2",
+    "file": "/media/pondicherry-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Beach_Promenade,_Pondicherry,_India.jpg",
+    "author": "Dey.sandip",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Beach%20Promenade%2C%20Pondicherry%2C%20India.jpg?width=2400"
+  },
+  {
+    "name": "pondicherry-3",
+    "file": "/media/pondicherry-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Night_views_of_the_Promenade_Beach_in_Pondicherry_04.jpg",
+    "author": "Pinakpani",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Night%20views%20of%20the%20Promenade%20Beach%20in%20Pondicherry%2004.jpg?width=2400"
+  },
+  {
+    "name": "dubai-2",
+    "file": "/media/dubai-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Sunset_captured_on_Dubai_Dunes_(Wide_Angle).jpg",
+    "author": "iMahesh",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20captured%20on%20Dubai%20Dunes%20%28Wide%20Angle%29.jpg?width=2400"
+  },
+  {
+    "name": "dubai-3",
+    "file": "/media/dubai-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Dubai_Marina_by_night_(2).jpg",
+    "author": "Aidan-dubai2024",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dubai%20Marina%20by%20night%20%282%29.jpg?width=2400"
+  },
+  {
+    "name": "dubai-4",
+    "file": "/media/dubai-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Forever_Marina_Dubai.jpg",
+    "author": "CoolP1x4rt",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Forever%20Marina%20Dubai.jpg?width=2400"
+  },
+  {
+    "name": "thailand-2",
+    "file": "/media/thailand-2.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Maya_Bay_enclosed_limestone_cliffs_and_turquoise_water_Ko_Phi_Phi_Le.jpg",
+    "author": "Nnthurber",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Maya%20Bay%20enclosed%20limestone%20cliffs%20and%20turquoise%20water%20Ko%20Phi%20Phi%20Le.jpg?width=2400"
+  },
+  {
+    "name": "thailand-3",
+    "file": "/media/thailand-3.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:Thalang_Road,_Old_Phuket_Town.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thalang%20Road%2C%20Old%20Phuket%20Town.jpg?width=2400"
+  },
+  {
+    "name": "thailand-4",
+    "file": "/media/thailand-4.webp",
+    "page": "https://commons.wikimedia.org/wiki/File:A_Long-tail_Boat_in_Pileh_Lagoon,_Phi_Phi_Le.jpg",
+    "author": "Puripant",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Long-tail%20Boat%20in%20Pileh%20Lagoon%2C%20Phi%20Phi%20Le.jpg?width=2400"
+  }
+]
