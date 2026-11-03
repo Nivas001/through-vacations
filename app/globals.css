@@ -306,3 +306,13 @@
 html.lenis, html.lenis body { height: auto; }
 html.lenis { scroll-behavior: auto; }
 .lenis.lenis-stopped { overflow: clip; }
+
+/* World clock time slider */
+.time-range { -webkit-appearance: none; appearance: none; height: 28px; background: transparent; cursor: grab; }
+.time-range:active { cursor: grabbing; }
+.time-range::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: linear-gradient(90deg, transparent, var(--fill) 50%, transparent), rgb(127 127 127 / .25); }
+.time-range::-moz-range-track { height: 6px; border-radius: 999px; background: rgb(127 127 127 / .25); }
+.time-range::-webkit-slider-thumb { -webkit-appearance: none; margin-top: -9px; width: 24px; height: 24px; border-radius: 999px; background: #ffd23f; border: 3px solid #fff; box-shadow: 0 4px 12px rgb(0 0 0 / .35); }
+.time-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 999px; background: #ffd23f; border: 3px solid #fff; box-shadow: 0 4px 12px rgb(0 0 0 / .35); }
+.time-range:focus-visible { outline: none; }
+.time-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgb(255 210 63 / .5); }

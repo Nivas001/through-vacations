@@ -72,6 +72,7 @@ export const footerLinks = [
   { href: "/plan", label: "Custom quote" },
   { href: "/groups", label: "Group & corporate trips" },
   { href: "/my-trip", label: "Manage my trip" },
+  { href: "/time-zones", label: "World clock" },
   { href: "/faq", label: "FAQs" },
   { href: "/travel-information", label: "Travel information" },
   { href: "/contact", label: "Contact & offices" },
