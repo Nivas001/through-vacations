@@ -1,0 +1,20 @@
+/** Approximate [lat, lng] for each holiday's main stop, used to draw routes on the home globe. */
+export const geo: Record<string, [number, number]> = {
+  "phuket-krabi": [7.88, 98.39],
+  "bangkok-pattaya": [13.75, 100.5],
+  andaman: [11.62, 92.73],
+  bali: [-8.65, 115.22],
+  malaysia: [3.14, 101.69],
+  dubai: [25.2, 55.27],
+  pondicherry: [11.94, 79.81],
+  coorg: [12.34, 75.81],
+  "shimla-manali-amritsar": [31.1, 77.17],
+  kashmir: [34.08, 74.8],
+  "munnar-alleppey": [10.09, 77.06],
+  ladakh: [34.15, 77.58],
+  goa: [15.3, 74.12],
+  "udaipur-jaipur": [24.58, 73.71],
+  maldives: [4.18, 73.51],
+  singapore: [1.35, 103.82],
+  "sri-lanka": [7.29, 80.63],
+};

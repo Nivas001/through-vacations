@@ -5,8 +5,9 @@ const tone: Record<string, string> = {
   quoted: "bg-amber-500/15 text-amber-700 dark:text-amber-300", confirmed: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
   paid: "bg-emerald-500/20 text-emerald-800 dark:text-emerald-300", won: "bg-emerald-500/20 text-emerald-800 dark:text-emerald-300",
   completed: "bg-muted text-muted-foreground", closed: "bg-muted text-muted-foreground", cancelled: "bg-destructive/10 text-destructive",
+  replied: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300", archived: "bg-muted text-muted-foreground",
 };
 
 export function StatusBadge({ status }: { status: string }) {
-  return <span className={cn("rounded-full px-2.5 py-0.5 text-xs font-medium capitalize", tone[status])}>{status}</span>;
+  return <span className={cn("shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap capitalize", tone[status])}>{status}</span>;
 }

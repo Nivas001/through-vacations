@@ -98,6 +98,9 @@
   --sidebar-accent-foreground: #0a1a7a;
   --sidebar-border: #dfe4f5;
   --sidebar-ring: #1e4be6;
+  /* Two-series charts; validated for CVD separation on the card surface. */
+  --series-1: #1e4be6;
+  --series-2: #e09a00;
 }
 
 .dark {
@@ -137,6 +140,8 @@
   --sidebar-accent-foreground: #dfe5ff;
   --sidebar-border: rgb(255 255 255 / 10%);
   --sidebar-ring: #7d93ff;
+  --series-1: #5f7cf5;
+  --series-2: #c08612;
 }
 
 @layer base {
@@ -276,3 +281,23 @@
 
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Vacation layer: hero sky, photo marquee, waves */
+.cloud-drift { animation: cloud-drift var(--dur, 60s) linear infinite; }
+@keyframes cloud-drift { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
+.sun-pulse { animation: sun-pulse 7s ease-in-out infinite; }
+@keyframes sun-pulse { 50% { opacity: .75; transform: scale(1.08); } }
+.route-dash { stroke-dasharray: 2 14; animation: route-dash 2.4s linear infinite; }
+@keyframes route-dash { to { stroke-dashoffset: -32; } }
+.marquee-up { animation: marquee-up var(--dur, 40s) linear infinite; }
+.marquee-down { animation: marquee-up var(--dur, 40s) linear infinite reverse; }
+@keyframes marquee-up { to { transform: translateY(-50%); } }
+.marquee-3d:hover .marquee-up, .marquee-3d:hover .marquee-down { animation-play-state: paused; }
+.wave-slide { animation: wave-slide var(--dur, 14s) linear infinite; }
+@keyframes wave-slide { to { transform: translateX(-50%); } }
+.bob { animation: bob 5s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-8px) rotate(-3deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .cloud-drift, .sun-pulse, .route-dash, .marquee-up, .marquee-down, .wave-slide, .bob { animation: none; }
+  .hero-plane { display: none; }
+}

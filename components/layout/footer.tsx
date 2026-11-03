@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AtSign, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Wave } from "@/components/brand/wave";
-import { about, footerLinks, nav, siteDefaults, tel } from "@/lib/site";
+import { about, branches, footerLinks, legalLinks, nav, siteDefaults, tel } from "@/lib/site";
+import { Newsletter } from "./newsletter";
 import { getDestinations } from "@/lib/data/packages";
 
 function Arrow({ className }: { className?: string }) {
@@ -17,7 +18,7 @@ function Arrow({ className }: { className?: string }) {
 export async function Footer() {
   const dests = (await getDestinations()).slice(0, 8);
   return (
-    <footer className="grain relative mt-28 overflow-hidden bg-primary text-white">
+    <footer className="grain relative mt-28 overflow-hidden bg-primary text-white print:hidden">
       <Wave className="opacity-[0.08]" />
       <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-white/20 pb-10">
@@ -34,10 +35,24 @@ export async function Footer() {
           </div>
         </div>
       </div>
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
+      <div className="relative mx-auto max-w-7xl px-4 pt-12 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-8 rounded-[1.5rem] border border-white/20 bg-white/10 p-6 backdrop-blur sm:p-8">
+          <Newsletter />
+          <div className="grid w-full gap-3 sm:w-auto sm:grid-cols-2">
+            {branches.map((b) => (
+              <Link key={b.id} href="/contact" className="rounded-2xl bg-white/10 px-5 py-4 transition hover:bg-white/20">
+                <span className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-sun uppercase"><MapPin className="size-3.5" />{b.name}</span>
+                <span className="mt-1 block text-sm text-white/80">{b.address || "Visits by appointment"}</span>
+                <span className="block text-sm text-white/80">{b.hours}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
         <div>
           <Logo light />
-          <p className="mt-5 max-w-xs text-sm text-white/75">Travel made seamless. Curated holidays across India and beyond, planned from Pondicherry.</p>
+          <p className="mt-5 max-w-xs text-sm text-white/75">Travel made seamless. Curated holidays across India and beyond, planned from Pondicherry and Chennai.</p>
         </div>
         <FooterCol title="Explore">
           {nav.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
@@ -49,18 +64,18 @@ export async function Footer() {
           {footerLinks.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
         </FooterCol>
         <FooterCol title="Say hello">
-          <a href={`mailto:${siteDefaults.email}`} className="flex items-center gap-2"><Mail className="size-4" />{siteDefaults.email}</a>
+          <a href={`mailto:${siteDefaults.email}`} className="flex min-w-0 items-center gap-2 break-all"><Mail className="size-4 shrink-0" />{siteDefaults.email}</a>
           <a href={tel()} className="flex items-center gap-2"><Phone className="size-4" />{siteDefaults.phone}</a>
           <a href={siteDefaults.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2"><AtSign className="size-4" />@throughvacations</a>
-          <span className="flex items-center gap-2 text-white/75"><MapPin className="size-4" />{siteDefaults.location}</span>
+          <Link href="/contact" className="flex items-center gap-2"><MapPin className="size-4" />Pondicherry · Chennai</Link>
         </FooterCol>
       </div>
       <div className="relative border-t border-white/15">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-4 py-5 pb-24 text-xs text-white/65 sm:px-6 lg:pb-5">
           <span>© Through Vacations. Final prices and availability are confirmed in your quote.</span>
-          <span className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <Link href="/credits" className="hover:text-white">Image credits</Link>
+          <span className="flex flex-wrap gap-x-4 gap-y-2">
+            {legalLinks.map((l) => <Link key={l.href} href={l.href} className="hover:text-white">{l.label}</Link>)}
+            <Link href="/admin" className="hover:text-white">Staff login</Link>
           </span>
         </div>
       </div>

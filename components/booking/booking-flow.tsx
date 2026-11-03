@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Counter } from "@/components/packages/booking-widget";
 import { LinkButton, ExternalButton } from "@/components/brand/link-button";
+import { OfficePicker, type OfficeChoice } from "@/components/contact/office-picker";
 import { addOnOptions, estimate, isTooSoon } from "@/lib/pricing";
 import { createBooking } from "@/lib/data/store";
 import { formatINR, whatsappLink } from "@/lib/site";
@@ -28,6 +29,7 @@ export function BookingFlow({ pkg, initial }: { pkg: TravelPackage; initial: Par
   const [d, setD] = useState<Draft>({ date: "", adults: 2, children: 0, rooms: 1, addOns: [], ...initial });
   const [done, setDone] = useState<Booking | null>(null);
   const [busy, setBusy] = useState(false);
+  const [office, setOffice] = useState<OfficeChoice>("auto");
 
   const form = useForm<LeadInput>({
     resolver: zodResolver(leadSchema) as never,
@@ -67,6 +69,7 @@ export function BookingFlow({ pkg, initial }: { pkg: TravelPackage; initial: Par
       packageSlug: pkg.slug, packageTitle: pkg.title, startDate: d.date, adults: d.adults, children: d.children,
       rooms: d.rooms, addOns: d.addOns, notes: lead.notes ?? "", estimate: total,
       lead: { name: lead.name, email: lead.email, phone: lead.phone, city: lead.city, country: lead.country },
+      ...(office !== "auto" && { branch: office }),
     });
     try { localStorage.removeItem(draftKey); } catch {}
     setDone(b);
@@ -80,7 +83,7 @@ export function BookingFlow({ pkg, initial }: { pkg: TravelPackage; initial: Par
   const errs = form.formState.errors;
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
       <div>
         <ol className="mb-8 flex gap-2 overflow-x-auto pb-1" aria-label="Progress">
           {steps.map((s, i) => (
@@ -126,6 +129,7 @@ export function BookingFlow({ pkg, initial }: { pkg: TravelPackage; initial: Par
                 <Field label="Phone / WhatsApp" error={errs.phone?.message}><Input type="tel" autoComplete="tel" {...form.register("phone")} /></Field>
                 <Field label="Departure city" error={errs.city?.message}><Input autoComplete="address-level2" {...form.register("city")} /></Field>
                 <Field label="Country of residence" error={errs.country?.message}><Input autoComplete="country-name" {...form.register("country")} /></Field>
+                <div className="sm:col-span-2"><OfficePicker value={office} onChange={setOffice} /></div>
                 <div className="sm:col-span-2"><Field label="Anything we should know? (optional)" error={errs.notes?.message}><Textarea rows={4} {...form.register("notes")} /></Field></div>
               </form>
             </Section>
@@ -201,9 +205,9 @@ function Confirmation({ booking, pkg }: { booking: Booking; pkg: TravelPackage }
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <ExternalButton href={whatsappLink(`Hi! My booking reference is ${booking.reference} for ${pkg.title}.`)} className="h-11 rounded-full px-6"><MessageCircle /> Message us on WhatsApp</ExternalButton>
-        <LinkButton href="/packages" variant="outline" className="h-11 rounded-full px-6">Keep browsing</LinkButton>
+        <LinkButton href={`/my-trip?ref=${booking.reference}`} variant="outline" className="h-11 rounded-full px-6">Track on My trip</LinkButton>
       </div>
-      <p className="mt-6 text-xs text-muted-foreground">Demo mode: this request is stored in your browser only until the database is connected. <Link href="/admin/bookings" className="underline">View in admin</Link></p>
+      <p className="mt-6 text-xs text-muted-foreground">Preview: this request is saved in this browser until the database is connected. <Link href="/admin/bookings" className="underline">See it in the travel desk</Link></p>
     </div>
   );
 }

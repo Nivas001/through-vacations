@@ -3,6 +3,9 @@ import { getPackages } from "@/lib/data/packages";
 import { TripShaper } from "@/components/shaper/trip-shaper";
 import { PageIntro } from "@/components/layout/page-intro";
 
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
+
 export const metadata: Metadata = { title: "Trip Shaper", description: "Pick a place, a month and your days. See the effort, the season and what to sort before you go." };
 
 export default async function TripShaperPage({ searchParams }: PageProps<"/trip-shaper">) {

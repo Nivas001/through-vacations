@@ -2,19 +2,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, BookOpen, Compass, Heart, Info, Map, Menu, Phone, SlidersHorizontal, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, BookOpen, Compass, Heart, Info, Map, Menu, Phone, Search, SlidersHorizontal, Tag, Ticket, X } from "lucide-react";
+import { openSearch } from "@/components/search/site-search";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/brand/logo";
 import { LinkButton } from "@/components/brand/link-button";
 import { ThemeToggle } from "./theme-toggle";
+import { AnnouncementBar } from "./announcement-bar";
 import { useSaved } from "@/components/saved/saved-provider";
 import { nav, siteDefaults, tel, whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const icons: Record<string, React.ComponentType<{ className?: string }>> = {
   "/packages": Compass,
+  "/offers": Tag,
   "/couples": Heart,
   "/destinations": Map,
   "/trip-shaper": SlidersHorizontal,
@@ -23,27 +26,17 @@ const icons: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 /** Specular highlight that follows the pointer across a liquid-glass surface. */
-function useSpecular<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  return {
-    ref,
-    onPointerMove: (e: React.PointerEvent) => {
-      const el = ref.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    },
-  };
+function specular(e: React.PointerEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  el.style.setProperty("--my", `${e.clientY - r.top}px`);
 }
 
 export function Header() {
   const path = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const { saved, setOpen } = useSaved();
-  const dock = useSpecular<HTMLDivElement>();
-  const brand = useSpecular<HTMLDivElement>();
-  const right = useSpecular<HTMLDivElement>();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 24);
@@ -54,17 +47,18 @@ export function Header() {
 
   return (
     <>
-      <div className="h-[84px]" aria-hidden />
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-3 pt-3">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
+      <div className="h-[calc(84px+var(--banner-h,0px))]" aria-hidden />
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-40 print:hidden">
+        <AnnouncementBar />
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 pt-3">
           {/* brand */}
-          <div ref={brand.ref} onPointerMove={brand.onPointerMove} className={cn("liquid pointer-events-auto rounded-full pr-4 pl-2 transition-all duration-300", scrolled ? "py-1" : "py-1.5")}>
+          <div onPointerMove={specular} className={cn("liquid pointer-events-auto rounded-full pr-4 pl-2 transition-all duration-300", scrolled ? "py-1" : "py-1.5")}>
             <Logo className="[&_img]:size-9 [&_span:first-child_span:first-child]:text-2xl" />
           </div>
 
           {/* dock */}
           <nav aria-label="Main" className="pointer-events-auto hidden lg:block">
-            <div ref={dock.ref} onPointerMove={dock.onPointerMove} className={cn("liquid flex items-center gap-1 rounded-full p-1.5 transition-all duration-300", scrolled && "scale-[0.97]")}>
+            <div onPointerMove={specular} className={cn("liquid flex items-center gap-1 rounded-full p-1.5 transition-all duration-300", scrolled && "scale-[0.97]")}>
               {nav.map((n) => {
                 const Icon = icons[n.href];
                 const active = path.startsWith(n.href);
@@ -88,7 +82,16 @@ export function Header() {
           </nav>
 
           {/* actions */}
-          <div ref={right.ref} onPointerMove={right.onPointerMove} className="liquid pointer-events-auto flex items-center gap-1 rounded-full p-1.5">
+          <div onPointerMove={specular} className="liquid pointer-events-auto flex items-center gap-1 rounded-full p-1.5">
+            <button
+              type="button"
+              onClick={openSearch}
+              aria-label="Search (Ctrl K)"
+              title="Search (Ctrl K)"
+              className="grid size-10 place-items-center rounded-full text-foreground/80 transition hover:bg-white/60 dark:hover:bg-white/10"
+            >
+              <Search className="size-[1.1rem]" />
+            </button>
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -98,7 +101,10 @@ export function Header() {
               <Heart className={cn("size-[1.1rem]", saved.length && "fill-rose-500 stroke-rose-500")} />
               {saved.length > 0 && <span className="absolute -top-0.5 -right-0.5 grid min-w-4 place-items-center rounded-full bg-primary px-1 text-[0.6rem] font-bold text-white">{saved.length}</span>}
             </button>
-            <ThemeToggle />
+            <Link href="/my-trip" aria-label="Manage my trip" title="Manage my trip" className="hidden size-10 place-items-center rounded-full text-foreground/80 transition hover:bg-white/60 sm:grid dark:hover:bg-white/10">
+              <Ticket className="size-[1.1rem]" />
+            </Link>
+            <ThemeToggle className="hidden sm:inline-flex" />
             <LinkButton href="/plan" variant="sun" className="cta-glow hidden h-10 px-5 sm:inline-flex">
               Plan a trip <ArrowUpRight />
             </LinkButton>
@@ -115,7 +121,7 @@ export function Header() {
                   </SheetClose>
                 </div>
                 <nav aria-label="Mobile" className="mt-6 flex flex-col overflow-y-auto">
-                  {[{ href: "/", label: "Home", sub: "Start here", img: "/media/thailand.webp" }, ...nav].map((n) => (
+                  {[{ href: "/", label: "Home", sub: "Start here", img: "/media/thailand.webp" }, ...nav, { href: "/my-trip", label: "My trip", sub: "Check a booking", img: "/media/dubai-2.webp" }, { href: "/contact", label: "Contact", sub: "Pondicherry and Chennai", img: "/media/pondicherry-2.webp" }].map((n) => (
                     <SheetClose key={n.href} render={<Link href={n.href} />} className="group flex items-center gap-4 border-b border-white/20 py-2.5">
                       <Image src={n.img} alt="" width={64} height={64} className="size-12 rounded-xl object-cover" />
                       <span className="flex-1">
@@ -130,6 +136,7 @@ export function Header() {
                   <LinkButton href="/plan" variant="sun" size="lg" className="h-12">Plan a trip <ArrowUpRight /></LinkButton>
                   <a href={whatsappLink()} className="inline-flex h-12 items-center rounded-full border-2 border-white px-5 text-sm font-bold">WhatsApp</a>
                   <a href={tel()} className="inline-flex h-12 items-center gap-2 px-2 text-sm text-white/80"><Phone className="size-4" />{siteDefaults.phone}</a>
+                  <span className="ml-auto inline-flex items-center gap-1 text-sm text-white/80 sm:hidden">Theme <ThemeToggle className="text-white hover:bg-white/10 hover:text-white" /></span>
                 </div>
               </SheetContent>
             </Sheet>
@@ -138,7 +145,7 @@ export function Header() {
       </header>
 
       {/* phone: floating liquid tab bar */}
-      <nav aria-label="Quick" className="pointer-events-none fixed inset-x-0 bottom-3 z-40 flex justify-center px-3 lg:hidden">
+      <nav aria-label="Quick" className="pointer-events-none fixed inset-x-0 bottom-3 z-40 flex justify-center px-3 lg:hidden print:hidden">
         <ul className="liquid pointer-events-auto flex w-full max-w-sm items-center justify-between rounded-full p-1.5">
           {nav.filter((n) => ["/packages", "/couples", "/destinations", "/trip-shaper"].includes(n.href)).map((n) => {
             const Icon = icons[n.href];

@@ -9,6 +9,9 @@ import { LinkButton } from "@/components/brand/link-button";
 import { SectionHeading } from "@/components/brand/section-heading";
 import { Reveal } from "@/components/fx/reveal";
 
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
+
 export async function generateStaticParams() {
   return (await getDestinations()).map((d) => ({ slug: d.slug }));
 }

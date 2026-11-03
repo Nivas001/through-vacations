@@ -19,6 +19,8 @@ const faqs = [
   ["Can you help with visas and passports?", "Yes, we offer visa assistance and passport services. Requirements depend on your destination and nationality."],
   ["I live outside India. Can I travel with you?", "Yes. International enquiries are welcome. Tell us your departure city, country and preferred budget currency in the quote form."],
   ["Do you organise group, corporate and student trips?", "Yes: friends and family groups, corporate trips, student industrial visits, camping and resort stays."],
+  ["Where are your offices?", "We have desks in Pondicherry and Chennai. Most planning happens over WhatsApp and phone, and you are welcome to visit either office by appointment."],
+  ["Can I change my dates after I reserve?", "Usually, yes. Tell your planner as early as you can. Changes depend on hotel and transport availability and are confirmed in writing."],
 ];
 
 export default function HowItWorksPage() {
@@ -34,7 +36,7 @@ export default function HowItWorksPage() {
           </li>
         ))}
       </ol>
-      <section className="mx-auto mt-24 max-w-3xl px-4 sm:px-6">
+      <section id="faq" className="mx-auto mt-24 max-w-3xl scroll-mt-28 px-4 sm:px-6">
         <h2 className="text-4xl font-extrabold sm:text-5xl">Questions, answered</h2>
         <Accordion className="mt-8 rounded-2xl border bg-card px-5">
           {faqs.map(([q, a]) => (
@@ -44,7 +46,7 @@ export default function HowItWorksPage() {
             </AccordionItem>
           ))}
         </Accordion>
-        <div className="mt-10"><LinkButton href="/plan" className="h-11 rounded-full px-6">Start planning</LinkButton></div>
+        <div className="mt-10 flex flex-wrap gap-3"><LinkButton href="/plan" className="h-11 rounded-full px-6">Start planning</LinkButton><LinkButton href="/faq" variant="outline" className="h-11 rounded-full border-2 border-foreground px-6">All FAQs</LinkButton></div>
       </section>
     </>
   );

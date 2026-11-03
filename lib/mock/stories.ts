@@ -1,5 +1,3 @@
-import { IG } from "../site";
-
 export type StoryCategory = "Islands & beaches" | "Mountains & hills" | "Cities & culture";
 
 export type Story = {

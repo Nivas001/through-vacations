@@ -28,3 +28,15 @@ export const quoteSchema = z.object({
   notes: z.string().max(1500).optional().default(""),
 });
 export type QuoteInput = z.infer<typeof quoteSchema>;
+
+export const contactSchema = z.object({
+  name: z.string().trim().min(2, "Please enter your name"),
+  email: z.string().trim().email("Enter a valid email address"),
+  phone: z.string().trim().optional().default("").refine((v) => !v || /^[+\d][\d\s-]{6,}$/.test(v), "Use digits, spaces or + only"),
+  subject: z.string().trim().min(2),
+  message: z.string().trim().min(10, "A few more words, please").max(2000),
+  branch: z.enum(["pondicherry", "chennai"]),
+});
+export type ContactInput = z.infer<typeof contactSchema>;
+
+export const emailSchema = z.string().trim().email("Enter a valid email address");

@@ -13,7 +13,7 @@ export function JourneyStepper() {
   const [i, setI] = useState(0);
   const s = steps[i];
   return (
-    <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr]">
       <ol className="grid gap-2" role="tablist" aria-label="Trip steps">
         {steps.map((x, k) => (
           <li key={x.n}>

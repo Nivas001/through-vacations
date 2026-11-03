@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Heart, BedDouble, Briefcase, GraduationCap, Plane, Route, Stamp, Gauge, CloudSun, FileCheck2 } from "lucide-react";
 import { getPackage, getPackages } from "@/lib/data/packages";
-import { IG, monthName, whatsappLink } from "@/lib/site";
+import { branches, IG, monthName, siteDefaults, siteUrl } from "@/lib/site";
 import { stories } from "@/lib/mock/stories";
 import { HeroPostcards, type PostcardSlide } from "@/components/home/hero-postcards";
 import { EscapeFinder } from "@/components/home/escape-finder";
@@ -11,14 +11,15 @@ import { SectionHeading } from "@/components/brand/section-heading";
 import { Wave } from "@/components/brand/wave";
 import { ExternalButton, LinkButton } from "@/components/brand/link-button";
 import { Reveal } from "@/components/fx/reveal";
-import { Marquee } from "@/components/fx/marquee";
-
-const steps = [
-  { n: "01", title: "Pick or describe", body: "Browse a holiday you like, or tell us the trip you have in mind." },
-  { n: "02", title: "Reserve your dates", body: "Choose dates and travellers. We hold your request while we confirm details." },
-  { n: "03", title: "We tailor it", body: "Your planner refines stays, transfers and activities and sends a personal quote." },
-  { n: "04", title: "Go through it", body: "Pay the team directly once you are happy, then travel with support on call." },
-];
+import { PhotoMarquee } from "@/components/home/photo-marquee";
+import { RouteGlobe, type GlobeStop } from "@/components/home/route-globe";
+import { FlightSteps } from "@/components/home/flight-steps";
+import { StatsWaves } from "@/components/home/stats-waves";
+import { BoardingPassCta } from "@/components/home/boarding-pass-cta";
+import { geo } from "@/lib/mock/geo";
+import { Offices } from "@/components/contact/offices";
+import { RecentlyViewed } from "@/components/packages/recently-viewed";
+import { OffersStrip } from "@/components/offers/offers";
 
 const services = [
   { icon: Route, label: "Itinerary planning" },
@@ -42,13 +43,20 @@ const gate: { slug: string; place: string; image: string; alt: string }[] = [
 
 const featuredOrder = ["kashmir", "phuket-krabi", "maldives", "andaman", "munnar-alleppey", "bali"];
 
-const ticker = ["Phi Phi", "Havelock", "Gulmarg", "Alleppey", "Nubra Valley", "Ubud", "Udaipur", "Ella", "Marina Bay", "Amritsar", "Pondicherry", "Maldives"];
-
 export default async function HomePage() {
   const all = await getPackages();
   const destinations = [...new Set(all.map((p) => p.destination))];
-  const india = all.filter((p) => p.region === "India").slice(0, 5);
-  const intl = all.filter((p) => p.region === "International").slice(0, 5);
+  const stops: GlobeStop[] = all
+    .filter((p) => p.facts && geo[p.slug])
+    .map((p) => ({ slug: p.slug, title: p.title, code: p.facts!.code, region: p.region, flight: p.facts!.fromChennai, months: p.bestMonths.slice(0, 4).map((m) => monthName(m).slice(0, 3)).join(", "), location: geo[p.slug] }));
+  // Counted from the published catalogue, never invented.
+  const countries = new Set(all.filter((p) => p.region === "International").map((p) => (p.slug === "phuket-krabi" || p.slug === "bangkok-pattaya" ? "Thailand" : p.destination))).size + 1;
+  const stats = [
+    { value: all.length, label: "Holidays ready to tailor" },
+    { value: countries, label: "Countries, India included" },
+    { value: all.filter((p) => p.region === "India").length, label: "Indian getaways" },
+    { value: 2, label: "Offices, Pondicherry and Chennai" },
+  ];
 
   const slides: PostcardSlide[] = (
     await Promise.all(
@@ -70,8 +78,28 @@ export default async function HomePage() {
     )
   ).filter((x): x is PostcardSlide => x !== null);
 
+  // Structured data with only facts we can state: name, contact, and the two office cities.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    name: "Through Vacations",
+    url: siteUrl,
+    logo: `${siteUrl}/media/logo.jpg`,
+    email: siteDefaults.email,
+    telephone: siteDefaults.phone.replace(/\s/g, ""),
+    sameAs: [IG],
+    areaServed: ["India", "Worldwide"],
+    department: branches.map((b) => ({
+      "@type": "TravelAgency",
+      name: `Through Vacations ${b.name}`,
+      telephone: b.phone.replace(/\s/g, ""),
+      address: { "@type": "PostalAddress", addressLocality: b.city, ...(b.address && { streetAddress: b.address }), addressCountry: "IN" },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <HeroPostcards slides={slides} destinations={destinations} />
 
       {/* Couples hook */}
@@ -92,7 +120,7 @@ export default async function HomePage() {
                 <Link key={name} href="/couples" className={`group relative overflow-hidden rounded-[1.25rem] ${i === 1 ? "mt-8" : ""}`}>
                   <Image src={src} alt="" fill sizes="(min-width:1024px) 20vw, 33vw" quality={85} className="object-cover transition duration-700 group-hover:scale-110" />
                   <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <span className="absolute inset-x-3 bottom-3 font-display text-lg leading-none font-extrabold text-white sm:text-2xl">{name}</span>
+                  <span className="absolute inset-x-2 bottom-3 font-display text-base leading-none font-extrabold text-white min-[400px]:inset-x-3 min-[400px]:text-lg sm:text-2xl">{name}</span>
                 </Link>
               ))}
             </div>
@@ -100,11 +128,15 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      <div className="mt-24 overflow-x-clip py-6"><Marquee items={ticker} /></div>
+      <OffersStrip />
+
+      <PhotoMarquee packages={all} />
 
       <section className="mx-auto max-w-7xl px-4 pt-24 sm:px-6">
         <EscapeFinder />
       </section>
+
+      <RecentlyViewed className="mx-auto max-w-7xl px-4 pt-20 sm:px-6" />
 
       <section className="mx-auto max-w-7xl px-4 pt-28 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -147,48 +179,11 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      {/* India / International */}
-      <section className="mx-auto max-w-7xl px-4 pt-28 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-2">
-          {[{ t: "Closer to *home*", e: "India", l: india }, { t: "Further *afield*", e: "International", l: intl }].map((g) => (
-            <div key={g.e} className="min-w-0">
-              <div className="flex items-end justify-between gap-4">
-                <SectionHeading eyebrow={g.e} title={g.t} />
-                <Link href={`/packages?region=${g.e}`} className="shrink-0 pb-1 text-sm font-bold whitespace-nowrap text-brand underline-offset-4 hover:underline">See all</Link>
-              </div>
-              <div className="grain relative mt-6 divide-y divide-white/15 overflow-hidden rounded-[1.75rem] bg-primary text-white">
-                {g.l.map((p) => (
-                  <Link key={p.id} href={`/packages/${p.slug}`} className="group relative flex items-center gap-4 p-3 transition hover:bg-white/10">
-                    <Image src={p.image} alt="" width={120} height={120} sizes="96px" className="size-20 rounded-2xl object-cover" />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-2xl leading-none font-extrabold">{p.destination}</p>
-                      <p className="mt-1 truncate text-sm text-white/75"><span className="serif-i">{p.tagline}</span> · {p.durationLabel}</p>
-                    </div>
-                    <ArrowUpRight className="size-6 text-sun transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <RouteGlobe stops={stops} />
 
-      {/* How it works */}
-      <section className="relative mt-28 overflow-hidden bg-[#070b24] py-24 text-white">
-        <Wave className="opacity-[0.06]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading eyebrow="How it works" title="From idea to *boarding pass*" align="center" className="[&_em]:text-sun [&>p]:bg-white/10 [&>p]:text-white" />
-          <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s) => (
-              <li key={s.n} className="rounded-3xl border border-white/15 bg-white/5 p-6 transition duration-300 hover:-translate-y-2 hover:border-sun hover:bg-white/10">
-                <span className="text-outline font-display text-7xl leading-none font-extrabold text-sun">{s.n}</span>
-                <h3 className="mt-5 text-2xl font-extrabold">{s.title}</h3>
-                <p className="mt-2 text-sm text-white/70">{s.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <FlightSteps />
+
+      <StatsWaves stats={stats} />
 
       {/* Services */}
       <section className="mx-auto max-w-7xl px-4 pt-24 sm:px-6">
@@ -225,20 +220,16 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto mt-28 max-w-7xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-sun px-6 py-16 text-center text-sun-foreground sm:px-16 sm:py-24">
-          <Wave className="opacity-[0.25] invert" />
-          <div className="relative">
-            <h2 className="mx-auto max-w-3xl text-5xl leading-[0.95] font-extrabold sm:text-7xl">Tell us where you <span className="accent-word accent-light text-primary">want to go.</span></h2>
-            <p className="mx-auto mt-6 max-w-lg text-sun-foreground/80">A three-step form, a personal quote and a planner to shape the details.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <LinkButton href="/plan" size="lg" className="h-12 bg-ink px-7 text-base text-white hover:bg-white hover:text-ink dark:bg-ink dark:text-background">Plan my trip <ArrowUpRight /></LinkButton>
-              <ExternalButton href={whatsappLink()} size="lg" variant="outline" className="h-12 border-2 border-ink bg-transparent px-7 text-base text-ink hover:bg-ink hover:text-white">WhatsApp us</ExternalButton>
-            </div>
-          </div>
+      {/* Offices */}
+      <section className="mx-auto max-w-7xl px-4 pt-28 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading eyebrow="Visit us" title="Two offices, *one* team">Plan over WhatsApp from anywhere, or sit down with a planner in Pondicherry or Chennai.</SectionHeading>
+          <LinkButton href="/contact" variant="outline" className="h-11 border-2 border-foreground px-6">Contact & offices <ArrowUpRight /></LinkButton>
         </div>
+        <Offices compact className="mt-10" />
       </section>
+
+      <BoardingPassCta />
     </>
   );
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, Check, ChevronRight, Clock, MapPin, X } from "lucide-react";
 import { ItineraryExplorer } from "@/components/packages/itinerary-explorer";
-import { Reveal } from "@/components/fx/reveal";
 import { getPackage, getPackages } from "@/lib/data/packages";
 import { monthName } from "@/lib/site";
 import { getRomance } from "@/lib/mock/romance";
@@ -12,7 +11,12 @@ import { Heart, Sunrise, Sun, Sunset, Moon } from "lucide-react";
 import { BookingWidget } from "@/components/packages/booking-widget";
 import { PriceTicket } from "@/components/packages/price-ticket";
 import { PackageCard } from "@/components/packages/package-card";
+import { ShareActions } from "@/components/packages/share-actions";
+import { RecentlyViewed } from "@/components/packages/recently-viewed";
 import { SectionHeading } from "@/components/brand/section-heading";
+
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
 
 export async function generateStaticParams() {
   return (await getPackages()).map((p) => ({ slug: p.slug }));
@@ -32,12 +36,13 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
 
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 pt-6 sm:px-6">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted-foreground">
           <Link href="/packages" className="hover:text-foreground">Holidays</Link>
           <ChevronRight className="size-3.5" />
           <span className="text-foreground">{pkg.destination}</span>
         </nav>
+        <ShareActions slug={pkg.slug} title={pkg.title} />
       </div>
 
       <section className="mx-auto mt-4 max-w-7xl px-4 sm:px-6">
@@ -52,7 +57,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         </div>
       </section>
 
-      <div className="mx-auto mt-10 grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_380px]">
+      <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div className="min-w-0 space-y-16">
           <section>
             <ul className="flex flex-wrap gap-2.5 text-sm">
@@ -142,8 +147,10 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         </aside>
       </div>
 
+      <RecentlyViewed exclude={pkg.slug} className="mx-auto mt-20 max-w-7xl px-4 sm:px-6" />
+
       {similar.length > 0 && (
-        <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6">
+        <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 print:hidden">
           <SectionHeading eyebrow="You might also like" title="More ways to *go*" />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {similar.map((p) => <PackageCard key={p.id} pkg={p} />)}

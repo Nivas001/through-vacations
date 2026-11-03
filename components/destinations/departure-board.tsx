@@ -35,7 +35,7 @@ export function DepartureBoard({ rows }: { rows: BoardRow[] }) {
         ))}
       </div>
 
-      <div className="mt-6 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="overflow-hidden rounded-[1.5rem] bg-[#070b24] text-white">
           <div className="hidden grid-cols-[4.5rem_1fr_9rem_5rem_2rem] gap-3 border-b border-white/15 px-5 py-3 text-[0.65rem] font-bold tracking-[0.25em] text-sun uppercase sm:grid">
             <span>Code</span><span>Destination</span><span>Best months</span><span className="text-right">Trips</span><span />

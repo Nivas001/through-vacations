@@ -10,6 +10,9 @@ import { Reveal } from "@/components/fx/reveal";
 import { ReadingProgress } from "@/components/journal/reading-progress";
 import { Carousel } from "@/components/fx/carousel";
 
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
+
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }));
 }

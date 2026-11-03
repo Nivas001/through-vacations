@@ -145,7 +145,7 @@ export default async function CouplesPage() {
         </section>
 
         {/* offers + faq */}
-        <section className="mt-28 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <section className="mt-28 grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <SectionHeading eyebrow="Questions" title="Good to *know*" />
             <div className="card-lift mt-8 rounded-[1.5rem] border-2 border-dashed border-sun bg-accent p-6 text-accent-foreground">

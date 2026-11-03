@@ -51,7 +51,7 @@ export function ItineraryExplorer({ days }: { days: ItineraryDay[] }) {
         </div>
       )}
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[64px_1fr]">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[64px_1fr]">
         {/* route rail */}
         <div className="relative hidden lg:block">
           <div className="sticky top-28 mx-auto flex h-[min(60vh,420px)] w-10 flex-col items-center">

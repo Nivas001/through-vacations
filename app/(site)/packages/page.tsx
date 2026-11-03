@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPackages } from "@/lib/data/packages";
 import { PackageBrowser } from "@/components/packages/package-browser";
+import { RecentlyViewed } from "@/components/packages/recently-viewed";
 import { PageIntro } from "@/components/layout/page-intro";
+
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
 
 export const metadata: Metadata = { title: "Holidays" };
 
@@ -32,7 +36,7 @@ export default async function PackagesPage({ searchParams }: PageProps<"/package
                 <Link href={`/packages?style=${m.style}`} className="group relative block aspect-[3/5] overflow-hidden rounded-2xl">
                   <Image src={m.img} alt="" fill sizes="(min-width:1024px) 10vw, 20vw" className="object-cover transition duration-700 group-hover:scale-110" />
                   <span className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <span className="absolute inset-x-1.5 bottom-2 text-center text-[0.6rem] font-bold tracking-wider text-white uppercase sm:text-xs">{m.label}</span>
+                  <span className="absolute inset-x-1 bottom-2 text-center text-[0.55rem] leading-tight font-bold text-white uppercase [overflow-wrap:anywhere] min-[400px]:text-[0.62rem] sm:text-xs sm:tracking-wide lg:text-[0.62rem] lg:tracking-normal xl:text-xs">{m.label}</span>
                 </Link>
               </li>
             ))}
@@ -42,6 +46,7 @@ export default async function PackagesPage({ searchParams }: PageProps<"/package
         {packages.length} journeys, {india} across India and {packages.length - india} beyond. Every holiday is tailored, so use these as a starting point.
       </PageIntro>
       <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6">
+        <RecentlyViewed className="mb-10" />
         <PackageBrowser
           packages={packages}
           initial={{

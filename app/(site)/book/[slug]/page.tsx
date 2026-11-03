@@ -4,6 +4,9 @@ import { getPackage } from "@/lib/data/packages";
 import { BookingFlow } from "@/components/booking/booking-flow";
 import { PageIntro } from "@/components/layout/page-intro";
 
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
+
 export const metadata: Metadata = { title: "Reserve your trip" };
 
 export default async function BookPage({ params, searchParams }: PageProps<"/book/[slug]">) {

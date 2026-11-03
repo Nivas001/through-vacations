@@ -6,6 +6,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Heart, MessageCircle } from "lucide-react";
 import { ExternalButton, LinkButton } from "@/components/brand/link-button";
 import { Wave } from "@/components/brand/wave";
+import { HeroSky } from "./hero-sky";
 import { HeroSearch } from "@/components/home/hero-search";
 import { whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -68,6 +69,7 @@ export function HeroPostcards({ slides, destinations }: { slides: PostcardSlide[
   return (
     <section className="grain relative mx-2 overflow-hidden rounded-[1.75rem] bg-primary text-white sm:mx-4" aria-label="Through Vacations">
       <Wave className="opacity-[0.07] dark:opacity-[0.05]" />
+      <HeroSky />
       <div className="relative mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-x-12 gap-y-10 px-5 pt-28 pb-10 sm:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <div className="lg:self-end">
           <p className="fade-up inline-flex items-center gap-2 text-xs font-bold tracking-[0.28em] uppercase">

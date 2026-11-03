@@ -28,7 +28,7 @@ export function RomanceExplorer({ items }: { items: RomanceItem[] }) {
         ))}
       </div>
 
-      <div key={cur.slug} className="fade-up mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+      <div key={cur.slug} className="fade-up mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Carousel slides={slides} className="overflow-hidden rounded-[1.75rem] card-lift" aspect="aspect-[4/3] sm:aspect-[5/4]" />
           <p className="mt-5 font-display text-3xl leading-[1] font-extrabold sm:text-4xl">{cur.line}</p>

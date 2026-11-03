@@ -1,25 +1,10 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AdminSidebar } from "@/components/admin/admin-sidebar";
 
-export const metadata: Metadata = { title: { default: "Travel desk", template: "%s | Travel desk" }, robots: { index: false } };
+/** The desk renders after sign-in on the client, so there is no server shell to validate. */
+export const instant = false;
 
-export default function AdminLayout({ children }: LayoutProps<"/admin">) {
-  return (
-    <SidebarProvider>
-      <Suspense fallback={null}>
-        <AdminSidebar />
-      </Suspense>
-      <SidebarInset>
-        <header className="flex h-14 items-center gap-3 border-b px-4">
-          <SidebarTrigger />
-          <p className="text-sm text-muted-foreground">Demo mode · changes live in this browser only · Supabase and sign-in pending</p>
-        </header>
-        <div className="p-4 sm:p-8">
-          <Suspense fallback={null}>{children}</Suspense>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
-  );
+export const metadata: Metadata = { title: { default: "Travel desk", template: "%s | Travel desk" }, robots: { index: false, follow: false } };
+
+export default function AdminRoot({ children }: LayoutProps<"/admin">) {
+  return children;
 }

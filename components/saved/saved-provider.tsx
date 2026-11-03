@@ -14,6 +14,8 @@ export function SavedProvider({ catalog, children }: { catalog: CatalogItem[]; c
   useEffect(() => {
     try {
       const raw = JSON.parse(localStorage.getItem(KEY) ?? "[]");
+      // Restoring the wishlist from localStorage on mount is a legitimate external-system sync.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (Array.isArray(raw)) setSaved(raw.filter((s) => typeof s === "string"));
     } catch {}
   }, []);

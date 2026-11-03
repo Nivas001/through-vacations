@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Counter } from "@/components/packages/booking-widget";
 import { LinkButton } from "@/components/brand/link-button";
+import { OfficePicker, type OfficeChoice } from "@/components/contact/office-picker";
 import { createEnquiry } from "@/lib/data/store";
 import { quoteSchema, type QuoteInput } from "@/lib/validation";
 import type { Enquiry, TravelStyle } from "@/lib/types";
@@ -24,6 +25,7 @@ export function QuoteForm({ prefill, dates, travellers, notes, presetStyles }: {
   const [step, setStep] = useState(0);
   const [done, setDone] = useState<Enquiry | null>(null);
   const [busy, setBusy] = useState(false);
+  const [office, setOffice] = useState<OfficeChoice>("auto");
   const form = useForm<QuoteInput>({
     resolver: zodResolver(quoteSchema) as never,
     defaultValues: {
@@ -42,7 +44,7 @@ export function QuoteForm({ prefill, dates, travellers, notes, presetStyles }: {
     if (!(await form.trigger())) return;
     setBusy(true);
     const v = form.getValues();
-    setDone(await createEnquiry({ ...v, styles: v.styles as TravelStyle[] }));
+    setDone(await createEnquiry({ ...v, styles: v.styles as TravelStyle[], ...(office !== "auto" && { branch: office }) }));
     setBusy(false);
   }
 
@@ -55,7 +57,11 @@ export function QuoteForm({ prefill, dates, travellers, notes, presetStyles }: {
         <button className="mx-auto mt-7 inline-flex items-center gap-2 rounded-2xl bg-secondary px-5 py-3 font-display text-3xl font-extrabold text-secondary-foreground" onClick={() => { navigator.clipboard?.writeText(done.reference); toast.success("Reference copied"); }}>
           {done.reference} <Copy className="size-4" />
         </button>
-        <div className="mt-8"><LinkButton href="/packages" variant="outline" className="h-11 rounded-full px-6">Browse holidays meanwhile</LinkButton></div>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <LinkButton href={`/my-trip?ref=${done.reference}`} className="h-11 rounded-full px-6">Track on My trip</LinkButton>
+          <LinkButton href="/packages" variant="outline" className="h-11 rounded-full px-6">Browse holidays meanwhile</LinkButton>
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">Keep your reference. With your phone number it opens your request on My trip.</p>
       </div>
     );
 
@@ -104,6 +110,7 @@ export function QuoteForm({ prefill, dates, travellers, notes, presetStyles }: {
             <Field label="Phone / WhatsApp" error={errors.phone?.message}><Input type="tel" autoComplete="tel" {...register("phone")} /></Field>
             <Field label="Departure city" error={errors.departureCity?.message}><Input {...register("departureCity")} /></Field>
             <Field label="Country of residence" error={errors.departureCountry?.message}><Input {...register("departureCountry")} /></Field>
+            <div className="sm:col-span-2"><OfficePicker value={office} onChange={setOffice} /></div>
           </>
         )}
       </form>

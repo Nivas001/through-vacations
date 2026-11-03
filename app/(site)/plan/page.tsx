@@ -4,6 +4,9 @@ import { getPackage } from "@/lib/data/packages";
 import { QuoteForm } from "@/components/plan/quote-form";
 import { PageIntro } from "@/components/layout/page-intro";
 
+/** Reads the URL, so navigation may wait on the server; opt out of instant-navigation validation. */
+export const instant = false;
+
 export const metadata: Metadata = { title: "Plan your trip" };
 
 export default async function PlanPage({ searchParams }: PageProps<"/plan">) {

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PackagesAdmin } from "@/components/admin/packages-admin";
+/** Rendered after client-side sign-in; nothing to validate on the server. */
+export const instant = false;
 export const metadata: Metadata = { title: "Holidays" };
 export default function Page() {
-  return (<><h1 className="mb-6 text-4xl font-extrabold">Holidays</h1><PackagesAdmin /></>);
+  return <PackagesAdmin />;
 }

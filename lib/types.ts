@@ -1,4 +1,4 @@
-// Shapes mirror the future Supabase tables: packages, bookings, enquiries, site_settings.
+// Shapes mirror the future Supabase tables: packages, bookings, enquiries, messages, subscribers, branches, site_settings.
 
 export type Region = "India" | "International";
 
@@ -100,6 +100,54 @@ export type Traveller = { name: string; age?: number };
 
 export type AddOn = "flights" | "visa" | "extra-nights" | "travel-insurance";
 
+/** The two offices. Every lead is owned by one of them. */
+export type BranchId = "pondicherry" | "chennai";
+
+export type Branch = {
+  id: BranchId;
+  name: string;
+  city: string;
+  /** Street address; empty until the owner confirms it, and the UI then says "by appointment". */
+  address: string;
+  phone: string;
+  whatsapp: string;
+  email: string;
+  hours: string;
+  manager: string;
+  /** Free-text query for the embedded map. */
+  mapQuery: string;
+};
+
+export type LeadSource = "website" | "walk-in" | "phone" | "whatsapp" | "instagram" | "referral";
+
+export type PaymentMethod = "upi" | "cash" | "card" | "bank";
+
+/** Money received against a booking: an advance, an instalment or the balance. */
+export type Payment = { id: string; amount: number; method: PaymentMethod; note: string; at: string };
+
+/** Site-wide offer banner, switched on from the travel desk. */
+export type Announcement = { enabled: boolean; text: string; href: string; cta: string };
+
+/** A promotion shown on the Offers page, managed from the travel desk. */
+export type Offer = {
+  id: string;
+  title: string;
+  /** Holiday it links to; its photo and duration are reused. */
+  packageSlug: string;
+  /** Per-person "from" price; null shows "Quote on request". */
+  price: number | null;
+  /** Optional struck-through price; only set when the business publishes one. */
+  was: number | null;
+  badge: string;
+  description: string;
+  /** ISO date; the offer hides itself after this day. */
+  validUntil: string | null;
+  active: boolean;
+};
+
+/** One line in a record's timeline: status changes, notes, assignments. */
+export type Activity = { at: string; text: string };
+
 export type Booking = {
   id: string;
   reference: string;
@@ -116,6 +164,12 @@ export type Booking = {
   status: BookingStatus;
   internalNotes: string;
   createdAt: string;
+  branch?: BranchId;
+  source?: LeadSource;
+  history?: Activity[];
+  payments?: Payment[];
+  /** ISO date to get back to the customer. */
+  followUp?: string;
 };
 
 export type EnquiryStatus = "new" | "contacted" | "quoted" | "won" | "closed";
@@ -139,7 +193,27 @@ export type Enquiry = {
   status: EnquiryStatus;
   internalNotes: string;
   createdAt: string;
+  branch?: BranchId;
+  source?: LeadSource;
+  history?: Activity[];
+  followUp?: string;
 };
+
+export type MessageStatus = "new" | "replied" | "archived";
+
+export type ContactMessage = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  branch: BranchId;
+  status: MessageStatus;
+  createdAt: string;
+};
+
+export type Subscriber = { id: string; email: string; createdAt: string };
 
 export type SiteSettings = {
   headline: string;

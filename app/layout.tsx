@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Bricolage_Grotesque, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Headings: Bricolage Grotesque. Body: Plus Jakarta Sans. Archivo italic is kept only for the wordmark, which echoes the slanted logo.
@@ -14,7 +15,15 @@ export const metadata: Metadata = {
   title: { default: "Through Vacations | Holidays across India & beyond", template: "%s | Through Vacations" },
   description:
     "Curated holidays from Pondicherry across India and beyond. Pick a trip, reserve it or ask for a tailored quote.",
-  icons: { icon: "/media/logo.jpg" },
+  icons: { icon: "/media/logo.jpg", apple: "/media/logo.jpg" },
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    siteName: "Through Vacations",
+    locale: "en_IN",
+    images: [{ url: "/media/maldives.webp", width: 2400, height: 1348, alt: "Water villas in the Maldives" }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 export const viewport: Viewport = { themeColor: "#1e4be6" };
 

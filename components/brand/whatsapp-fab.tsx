@@ -3,7 +3,7 @@ import { tel, whatsappLink } from "@/lib/site";
 
 export function ContactFab() {
   return (
-    <div className="fixed right-4 bottom-24 z-40 flex flex-col gap-2 lg:right-6 lg:bottom-6">
+    <div className="fixed right-4 bottom-24 z-40 flex flex-col gap-2 lg:right-6 lg:bottom-6 print:hidden">
       <a
         href={tel()}
         aria-label="Call Through Vacations"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowUpRight, Briefcase, GraduationCap, Heart, MapPin, Mountain, Sun, Users } from "lucide-react";
-import { IG, about, siteDefaults, whatsappLink } from "@/lib/site";
+import { IG, about, whatsappLink } from "@/lib/site";
 import { getPackage } from "@/lib/data/packages";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ExternalButton, LinkButton } from "@/components/brand/link-button";
@@ -11,8 +11,9 @@ import { SpotlightCard } from "@/components/fx/spotlight-card";
 import { Carousel } from "@/components/fx/carousel";
 import { Wave } from "@/components/brand/wave";
 import { JourneyStepper } from "@/components/about/journey-stepper";
+import { Offices } from "@/components/contact/offices";
 
-export const metadata: Metadata = { title: "About", description: "Through Vacations plans holidays across India and abroad from Pondicherry. How we think about trips, how we work and who we plan for." };
+export const metadata: Metadata = { title: "About", description: "Through Vacations plans holidays across India and abroad from offices in Pondicherry and Chennai. How we think about trips, how we work and who we plan for." };
 
 const beliefs = [
   { t: "Slow beats packed", d: "A good trip leaves gaps. We would rather give you a long dinner than a fourth viewpoint." },
@@ -38,7 +39,7 @@ const choose = [
 ];
 
 const faqs = [
-  { q: "Where are you based?", a: "In Pondicherry. We welcome travellers from Pondicherry, Chennai, across India and abroad." },
+  { q: "Where are you based?", a: "We started in Pondicherry and now have a desk in Chennai too. We welcome travellers from both cities, across India and abroad." },
   { q: "Do you only sell fixed packages?", a: "No. The holidays on the site are starting points. We tailor the stays, pace and activities, and we also plan trips that are not listed." },
   { q: "Do you handle flights, visas and hotels?", a: "We arrange stays, transfers and sightseeing, and support flights, visas and passport work where needed. Inclusions vary by trip and are confirmed in your quote." },
   { q: "When do I pay?", a: "You get a personal quote first. Payment is arranged directly with the team once you are happy, not on the website." },
@@ -128,7 +129,7 @@ export default async function AboutPage() {
             <h2 className="text-4xl leading-[0.96] font-extrabold sm:text-6xl">Why <span className="accent-word text-sun">Pondicherry?</span></h2>
             <div className="mt-6 space-y-4 text-lg text-white/85">
               <p>It is a town that teaches you how to travel: walk instead of drive, linger at the table, ask the way and enjoy the detour. French-quarter streets, a long seafront promenade and the quiet of nearby Auroville.</p>
-              <p>It is also a handy base. Chennai is about three to four hours away by road, and many of our travellers start from there. We plan trips for Pondicherry and Chennai travellers first, and travellers across India and abroad too.</p>
+              <p>It is also a handy base. Chennai is about three to four hours away by road, and many of our travellers start from there. That is why we now have a Chennai office as well, so travellers in both cities can sit down with a planner. We plan for travellers across India and abroad too.</p>
             </div>
             <ul className="mt-6 flex flex-wrap gap-2 text-sm font-bold">
               {["French Quarter", "Promenade", "Auroville", "Bike days"].map((t) => <li key={t} className="rounded-full border border-white/35 bg-white/10 px-4 py-1.5">{t}</li>)}
@@ -183,7 +184,7 @@ export default async function AboutPage() {
         </section>
 
         {/* faq */}
-        <section className="mt-28 grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+        <section className="mt-28 grid grid-cols-1 gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <SectionHeading eyebrow="Questions" title="Things people *ask*" />
           <Accordion className="card-lift rounded-[1.5rem] border bg-card px-5">
             {faqs.map((f, i) => (
@@ -196,22 +197,15 @@ export default async function AboutPage() {
         </section>
 
         {/* find us */}
-        <section className="mt-28 grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <SectionHeading eyebrow="Find us" title="Say *hello*" />
-            <ul className="mt-8 space-y-3 text-lg">
-              <li className="flex items-center gap-3"><MapPin className="size-5 text-brand" /> {about.address || siteDefaults.location}</li>
-              <li><a href={`mailto:${siteDefaults.email}`} className="text-brand underline underline-offset-4">{siteDefaults.email}</a></li>
-              <li><a href={`tel:${siteDefaults.phone.replace(/\s/g, "")}`} className="text-brand underline underline-offset-4">{siteDefaults.phone}</a></li>
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+        <section className="mt-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Find us" title="Say *hello*">Two offices, one team. Message us any time, or visit by appointment.</SectionHeading>
+            <div className="flex flex-wrap gap-3">
               <ExternalButton href={whatsappLink()} size="lg" className="h-12 px-6">Chat on WhatsApp <ArrowUpRight /></ExternalButton>
               <ExternalButton href={IG} variant="outline" size="lg" className="h-12 border-2 border-foreground px-6">Instagram</ExternalButton>
             </div>
           </div>
-          <div className="card-lift overflow-hidden rounded-[1.75rem] border bg-card">
-            <iframe title="Pondicherry on the map" loading="lazy" className="h-[380px] w-full" src="https://www.openstreetmap.org/export/embed.html?bbox=79.78%2C11.88%2C79.88%2C11.97&layer=mapnik" />
-          </div>
+          <Offices className="mt-10" />
         </section>
       </div>
     </>

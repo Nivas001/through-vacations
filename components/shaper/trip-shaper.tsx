@@ -41,7 +41,7 @@ export function TripShaper({ packages, initial }: { packages: TravelPackage[]; i
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[400px_1fr] lg:items-start">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-start">
       {/* controls */}
       <div className="card-lift space-y-7 rounded-[1.5rem] border bg-card p-5 sm:p-6 lg:sticky lg:top-28">
         <div>
@@ -139,11 +139,11 @@ export function TripShaper({ packages, initial }: { packages: TravelPackage[]; i
                 ? `You have ${shaped.extra} more day${shaped.extra > 1 ? "s" : ""} than the published route. A planner would add a free day or an extra stop.`
                 : "The published route fits your days."}
           </p>
-          <ol className="mt-4 grid gap-2 sm:grid-cols-2">
+          <ol className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {shaped.days.map((d) => (
               <li key={d.index} className={cn("flex items-center gap-3 rounded-xl border px-3 py-2.5 text-sm transition", d.kept ? "bg-card" : "border-dashed opacity-45")}>
                 <span className="font-display text-xl font-extrabold text-brand">{String(d.index + 1).padStart(2, "0")}</span>
-                <span className={cn("flex-1 truncate", !d.kept && "line-through")}>{d.title}</span>
+                <span className={cn("min-w-0 flex-1 truncate", !d.kept && "line-through")}>{d.title}</span>
                 {d.kept ? <Check className="size-4 text-brand" /> : <X className="size-4" />}
               </li>
             ))}
