@@ -15,6 +15,7 @@ import { Offices } from "@/components/contact/offices";
 import { Flythrough } from "@/components/about/flythrough";
 import { DestinationRing } from "@/components/about/destination-ring";
 import { SmoothScroll } from "@/components/fx/smooth-scroll";
+import { BrandFilm } from "@/components/about/brand-film";
 
 export const metadata: Metadata = { title: "About", description: "Through Vacations plans holidays across India and abroad from offices in Pondicherry and Chennai. How we think about trips, how we work and who we plan for." };
 
@@ -92,6 +93,8 @@ export default async function AboutPage() {
       <Flythrough photos={photos} holidays={all.length} countries={countries} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <BrandFilm />
+
         {/* beliefs */}
         <section className="mt-28">
           <SectionHeading eyebrow="What we believe" title="Four ideas behind *every trip*" />
