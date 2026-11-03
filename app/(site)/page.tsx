@@ -84,7 +84,7 @@ export default async function HomePage() {
     "@type": "TravelAgency",
     name: "Through Vacations",
     url: siteUrl,
-    logo: `${siteUrl}/media/logo.jpg`,
+    logo: `${siteUrl}/icons/icon-512.png`,
     email: siteDefaults.email,
     telephone: siteDefaults.phone.replace(/\s/g, ""),
     sameAs: [IG],

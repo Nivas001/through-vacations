@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   title: { default: "Through Vacations | Holidays across India & beyond", template: "%s | Through Vacations" },
   description:
     "Curated holidays from Pondicherry across India and beyond. Pick a trip, reserve it or ask for a tailored quote.",
-  icons: { icon: "/media/logo.jpg", apple: "/media/logo.jpg" },
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
