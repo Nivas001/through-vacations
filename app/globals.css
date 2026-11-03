@@ -301,3 +301,8 @@
   .cloud-drift, .sun-pulse, .route-dash, .marquee-up, .marquee-down, .wave-slide, .bob { animation: none; }
   .hero-plane { display: none; }
 }
+
+/* Lenis smooth scroll (minimal: maps and other iframes stay interactive) */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: clip; }

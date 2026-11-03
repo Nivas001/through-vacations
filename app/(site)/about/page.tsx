@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowUpRight, Briefcase, GraduationCap, Heart, MapPin, Mountain, Sun, Users } from "lucide-react";
 import { IG, about, whatsappLink } from "@/lib/site";
-import { getPackage } from "@/lib/data/packages";
+import { getPackage, getPackages } from "@/lib/data/packages";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ExternalButton, LinkButton } from "@/components/brand/link-button";
 import { SectionHeading } from "@/components/brand/section-heading";
@@ -12,6 +12,9 @@ import { Carousel } from "@/components/fx/carousel";
 import { Wave } from "@/components/brand/wave";
 import { JourneyStepper } from "@/components/about/journey-stepper";
 import { Offices } from "@/components/contact/offices";
+import { Flythrough } from "@/components/about/flythrough";
+import { DestinationRing } from "@/components/about/destination-ring";
+import { SmoothScroll } from "@/components/fx/smooth-scroll";
 
 export const metadata: Metadata = { title: "About", description: "Through Vacations plans holidays across India and abroad from offices in Pondicherry and Chennai. How we think about trips, how we work and who we plan for." };
 
@@ -51,6 +54,11 @@ export default async function AboutPage() {
   const pondy = await getPackage("pondicherry");
   const pondySlides = [pondy?.image ?? "/media/pondicherry.webp", ...(pondy?.gallery ?? [])].map((src) => ({ src }));
   const hasStory = about.founder || about.founderStory;
+  const all = await getPackages();
+  // Two photos per holiday, interleaved so neighbours in the fly-through differ.
+  const photos = [0, 1].flatMap((k) => all.map((p) => ({ src: k ? p.gallery[0] : p.image, title: p.title, slug: p.slug }))).filter((x) => !!x.src).slice(0, 18);
+  const countries = new Set(all.filter((p) => p.region === "International").map((p) => (p.destination === "Thailand" ? "Thailand" : p.destination))).size + 1;
+  const ring = all.slice(0, 12).map((p) => ({ slug: p.slug, title: p.title, image: p.image, sub: `${p.durationLabel} · ${p.region}` }));
 
   return (
     <>
@@ -79,6 +87,9 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      <SmoothScroll />
+      <Flythrough photos={photos} holidays={all.length} countries={countries} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* beliefs */}
@@ -161,6 +172,8 @@ export default async function AboutPage() {
             ))}
           </ul>
         </section>
+
+        <DestinationRing items={ring} />
 
         {/* people */}
         <section className="mt-28">
